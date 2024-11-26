@@ -70,7 +70,29 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 ### Endpoints
 
-List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
+**GET /artworks**
+
+- Get a list of artworks from database
+
+**GET /artworks /:id**
+
+- Get single artwork by artwork id
+
+**GET /auction /:id**
+
+- Get single auction by auction id
+
+**GET /auction /:id /bids**
+
+- Get a list of bids on the auction
+
+**POST /bid**
+
+- Create a new bid on an artwork
+
+**PATCH /user /:id**
+
+- Update user data
 
 ## Roadmap
 
@@ -117,6 +139,8 @@ List endpoints that your server will implement, including HTTP methods, paramete
 
 
 ## Nice-to-haves
+
+- Speach recognition for bidding
 
 - Search function
     - Search artwork
