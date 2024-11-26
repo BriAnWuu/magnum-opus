@@ -1,0 +1,24 @@
+*, *::before, *::after {
+    box-sizing: inherit;
+    font: inherit;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    // add font
+}
+
+html {
+    color-scheme: dark light;
+}
+
+body {
+    min-height: 100vh;
+}
+
+img, svg {
+    display: block;
+    max-width: 100%;
+}
