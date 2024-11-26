@@ -66,15 +66,13 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 ### Data
 
-Describe your data and the relationships between the data points. You can show this visually using diagrams, or write it out. 
+![](./public/readme-assets/db-diagram.png)
 
 ### Endpoints
 
 List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
 
 ## Roadmap
-
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation working back from the capstone due date. 
 
 - Create client
     - front end react project with routes
@@ -124,6 +122,10 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
     - Search artwork
     - Search artist or owners
     - Search by auction listing date
+
+- Sorting and grouping functions
+    - Sort by year, etc.
+    - Group by artist, style, year, or country of origin
 
 - Recommendation based on artworks visited
 
