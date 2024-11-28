@@ -1,3 +1,54 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
+
+$top-bot-padding: 10vh;
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    padding: $top-bot-padding;
+
+    &__frame {
+        display: flex;
+        width: 100%;
+        height: calc(100vh - $top-bot-padding * 2);
+        position: sticky;
+        top: $top-bot-padding;
+        border: 45px solid;
+        border-image-source: url('../../assets/wood-frame.png');
+        border-image-slice: 100;
+        border-image-repeat: round;
+        z-index: 100;
+    }
+
+}
+
+.gallery__image-container {
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    z-index: 0;
+}
+
+.test-image {
+    width: 500px;
+    opacity: 0;
+    scale: 0.2;
+    animation: fade-in-fade-out linear forwards;
+    animation-timeline: view();
+    animation-range: entry calc($top-bot-padding * 2.5) cover 90%;
+}
+
+@keyframes fade-in-fade-out {
+    40%, 60% {
+        opacity: 1;
+        scale: 1;
+    }
+    100% {
+        opacity: 0;
+        scale: 0.2;
+    }
+}
+
