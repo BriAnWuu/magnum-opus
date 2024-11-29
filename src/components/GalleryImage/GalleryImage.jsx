@@ -9,7 +9,6 @@ function GalleryImage({ image }) {
     const inView = useInView(imageRef, { amount: 0.5 });
 
     useEffect(() => {
-        console.log('In view', inView)
         if(inView) {
             animate(
                 imageRef.current, 
@@ -21,7 +20,7 @@ function GalleryImage({ image }) {
                     duration: 3,
                     ease: "easeInOut",
                     type: "spring",
-                    stiffness: 70
+                    stiffness: 80
                 }
             )
         } else {
@@ -35,7 +34,7 @@ function GalleryImage({ image }) {
                     duration: 3,
                     ease: "easeInOut",
                     type: "spring",
-                    stiffness: 70
+                    stiffness: 80
                 }
             )
         }
