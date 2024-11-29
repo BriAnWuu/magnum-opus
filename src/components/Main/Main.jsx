@@ -11,26 +11,32 @@ import testImg4 from "../../assets/4594.jpg";
 import testImg5 from "../../assets/5391.jpg";
 import testImg1 from "../../assets/896.jpg";
 
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
+import GalleryImage from "../GalleryImage/GalleryImage";
+import Test from "../Test/Test";
 import "./Main.scss";
+
 
 function Main(prop) {
     const testImages = [ testImg1, testImg2, testImg3, testImg4, testImg5, testImg6, testImg7, testImg8, testImg9, testImg10, testImg11, testImg12 ];
-    console.log(testImages.length)
+    // console.log(testImages.length);
+
+
+
     return (
         <>
             <div className="gallery">
-
                 <div className="gallery__frame">
-                    <div className="gallery__border-image"></div>
+                    <div className="gallery__image-container">
+                        { testImages.map(image => (
+                            <GalleryImage key={ image } image={image} />
+                        )) }
+                    </div>
                 </div>
-
-                <div className="gallery__image-container">
-                    { testImages.map(image => (
-                         <img className="test-image" src={image} />
-                    )) }
-                </div>
-            
             </div>
+
+            {/* <Test /> */}
         </>
     )
 };
