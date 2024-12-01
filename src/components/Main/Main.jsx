@@ -34,8 +34,30 @@ function Main(prop) {
                         )) }
                     </div>
                 </div>
+                <section className="gallery__title-description">
+                    <h2 className="gallery__title">Title</h2>
+                    <p className="gallery__year">Year</p>
+                    <p className="gallery__artist">Artist</p>
+                    <p className="gallery__description">Description</p>
+                </section>
+                <div className="gallery__info">
+                    <div className="gallery__details">
+                        <p className="gallery__place-origin">Place of Origin</p>
+                        <p className="gallery__medium">Medium</p>
+                        <p className="gallery__dimensions">Dimensions</p>
+                    </div>
+                    <div className="gallery__auction">
+                        <p className="gallery__countdown">Countdown</p>
+                        <p className="gallery__bid-price">Price</p>
+                        <p className="gallery__place-bid">Place a bid</p>
+                    </div>
+                </div>
+                <div className="gallery__navigate">
+                    <div className="gallery__navigate-left">Left</div>
+                    <div className="gallery__navigate-right">Right</div>
+                </div>
             </div>
-
+            
             {/* <Test /> */}
         </>
     )

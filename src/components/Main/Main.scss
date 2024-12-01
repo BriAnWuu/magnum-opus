@@ -2,20 +2,21 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
-$top-bot-padding: 10vh;
 
 .gallery {
-    display: flex;
-    flex-direction: column;
-    padding: $top-bot-padding;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    grid-template-rows: 3fr 1fr;
+    padding: calc($spacing * 6);
 
     &__frame {
         display: flex;
-        width: 50%;
-        aspect-ratio: 4/3;
+        width: 100%;
+        @include aspect-ratio;
         // height: calc(100vh - $top-bot-padding * 2);
         // position: sticky;
-        top: $top-bot-padding;
+        // top: $top-bot-padding;
         border: 45px solid;
         border-image-source: url('../../assets/image/wood-frame.png');
         border-image-slice: 100;
@@ -33,4 +34,18 @@ $top-bot-padding: 10vh;
         z-index: 0; 
     }
 
+    &__title-description {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__navigate {
+        display: flex;
+        flex-direction: row;
+    }
 }
