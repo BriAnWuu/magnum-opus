@@ -13,6 +13,7 @@ import testImg1 from "../../assets/896.jpg";
 
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
+import Gallery from "../Gallery/Gallery";
 import GalleryImage from "../GalleryImage/GalleryImage";
 import Test from "../Test/Test";
 import "./Main.scss";
@@ -26,37 +27,7 @@ function Main(prop) {
 
     return (
         <>
-            <div className="gallery">
-                <div className="gallery__frame">
-                    <div className="gallery__image-container">
-                        { testImages.map(image => (
-                            <GalleryImage key={ image } image={image} />
-                        )) }
-                    </div>
-                </div>
-                <section className="gallery__title-description">
-                    <h2 className="gallery__title">Title</h2>
-                    <p className="gallery__year">Year</p>
-                    <p className="gallery__artist">Artist</p>
-                    <p className="gallery__description">Description</p>
-                </section>
-                <div className="gallery__info">
-                    <div className="gallery__details">
-                        <p className="gallery__place-origin">Place of Origin</p>
-                        <p className="gallery__medium">Medium</p>
-                        <p className="gallery__dimensions">Dimensions</p>
-                    </div>
-                    <div className="gallery__auction">
-                        <p className="gallery__countdown">Countdown</p>
-                        <p className="gallery__bid-price">Price</p>
-                        <p className="gallery__place-bid">Place a bid</p>
-                    </div>
-                </div>
-                <div className="gallery__navigate">
-                    <div className="gallery__navigate-left">Left</div>
-                    <div className="gallery__navigate-right">Right</div>
-                </div>
-            </div>
+            <Gallery testImages={testImages} />
             
             {/* <Test /> */}
         </>
