@@ -8,16 +8,13 @@
     display: grid;
     grid-template-columns: 5fr 4fr;
     grid-template-rows: 3fr 1fr;
-    padding: calc($spacing * 2);
+    padding: calc($SPACING * 2);
     overflow: hidden;
 
     &__frame {
         display: flex;
         width: 100%;
         @include aspect-ratio;
-        // height: calc(100vh - $top-bot-padding * 2);
-        // position: sticky;
-        // top: $top-bot-padding;
         border: 45px solid;
         border-image-source: url('../../assets/image/wood-frame.png');
         border-image-slice: 100;
@@ -37,16 +34,16 @@
 
     &__section {
         display: flex;
-        padding: calc($spacing * 4);
+        padding: calc($SPACING * 4);
 
         &--title {
             flex-direction: column;
-            border-bottom: 1px solid rgb(255, 255, 255, 0.1);
+            border-bottom: 1px solid $BORDER-COLOR;
         }
 
         &--info {
             flex-direction: row;
-            border-right: 1px solid rgb(255, 255, 255, 0.1);
+            border-right: 1px solid $BORDER-COLOR;
         }
 
         &--navigate {
