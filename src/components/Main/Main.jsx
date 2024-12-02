@@ -11,25 +11,22 @@ import testImg4 from "../../assets/4594.jpg";
 import testImg5 from "../../assets/5391.jpg";
 import testImg1 from "../../assets/896.jpg";
 
-import { motion, useAnimation, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+
+import Discover from "../Discover/Discover";
 import Gallery from "../Gallery/Gallery";
-import GalleryImage from "../GalleryImage/GalleryImage";
-import Scroller from "../Scroller/Scroller";
 import Test from "../Test/Test";
 import "./Main.scss";
 
 
 function Main(prop) {
     const testImages = [ testImg1, testImg2, testImg3, testImg4, testImg5, testImg6, testImg7, testImg8, testImg9, testImg10, testImg11, testImg12 ];
-    // console.log(testImages.length);
 
 
 
     return (
         <>
             <Gallery testImages={testImages} />
-            <Scroller />
+            <Discover />
             {/* <Test /> */}
         </>
     )

@@ -19,11 +19,9 @@ import { useEffect } from "react";
 import ScrollerItem from "../ScrollerItem/ScrollerItem";
 import "./Scroller.scss";
 
-function Scroller(prop) {
+function Scroller() {
     const testImages = [ testImg1, testImg2, testImg3, testImg4, testImg5, testImg6, testImg7, testImg8, testImg9, testImg10, testImg11, testImg12 ];
 
-    // inner scroller translate
-    // 20s linear infinite
     const [scrollerRef, { width }] = useMeasure();
     const xTranslation = useMotionValue(0);
 
@@ -32,7 +30,7 @@ function Scroller(prop) {
 
         const scrollerLoop = animate(xTranslation, [0, duplicationTriggerPoint], {
             ease: "linear",
-            duration: 35,
+            duration: 55,
             repeat: Infinity,
             repeatType: "loop",
             repeatDelay: 0,
