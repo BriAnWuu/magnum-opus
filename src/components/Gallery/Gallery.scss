@@ -9,6 +9,7 @@
     grid-template-columns: 5fr 4fr;
     grid-template-rows: 3fr 1fr;
     padding: calc($spacing * 2);
+    overflow: hidden;
 
     &__frame {
         display: flex;
@@ -40,18 +41,18 @@
 
         &--title {
             flex-direction: column;
+            border-bottom: 1px solid rgb(255, 255, 255, 0.1);
         }
 
         &--info {
             flex-direction: row;
+            border-right: 1px solid rgb(255, 255, 255, 0.1);
         }
 
         &--navigate {
             flex-direction: row;
             justify-content: space-around;
             align-items: flex-end;
-            border-top: 1px solid rgb(255, 255, 255, 0.1);
-            border-left: 1px solid rgb(255, 255, 255, 0.1);
         }
     }
 }
