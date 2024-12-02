@@ -13,6 +13,7 @@ import testImg1 from "../../assets/896.jpg";
 
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
+import Gallery from "../Gallery/Gallery";
 import GalleryImage from "../GalleryImage/GalleryImage";
 import Test from "../Test/Test";
 import "./Main.scss";
@@ -26,16 +27,8 @@ function Main(prop) {
 
     return (
         <>
-            <div className="gallery">
-                <div className="gallery__frame">
-                    <div className="gallery__image-container">
-                        { testImages.map(image => (
-                            <GalleryImage key={ image } image={image} />
-                        )) }
-                    </div>
-                </div>
-            </div>
-
+            <Gallery testImages={testImages} />
+            
             {/* <Test /> */}
         </>
     )
