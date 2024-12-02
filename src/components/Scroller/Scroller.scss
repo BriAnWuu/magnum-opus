@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.discover {
+    &__scroller-container {
+        width: 100%;
+        overflow: hidden;
+        mask: linear-gradient(
+            90deg, 
+            transparent, 
+            white 20%, 
+            white 80%, 
+            transparent
+        );
+    }
+
+    &__scroller {
+        width: fit-content;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: calc($spacing * 2);
+        list-style: none;
+        padding: calc($spacing * 2) 0;
+        margin: 0;
+    }
+}
