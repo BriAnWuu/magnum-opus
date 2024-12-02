@@ -15,6 +15,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import Gallery from "../Gallery/Gallery";
 import GalleryImage from "../GalleryImage/GalleryImage";
+import Scroller from "../Scroller/Scroller";
 import Test from "../Test/Test";
 import "./Main.scss";
 
@@ -28,7 +29,7 @@ function Main(prop) {
     return (
         <>
             <Gallery testImages={testImages} />
-            
+            <Scroller />
             {/* <Test /> */}
         </>
     )

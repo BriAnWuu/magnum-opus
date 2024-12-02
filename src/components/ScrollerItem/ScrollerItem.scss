@@ -1,0 +1,17 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.discover {
+    &__scroller-item {
+        min-width: 22.5vw;
+    }
+
+    &__scroller-image {
+        width: 100%;
+        @include aspect-ratio;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}

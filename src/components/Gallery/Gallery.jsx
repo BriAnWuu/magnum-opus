@@ -8,7 +8,7 @@ function Gallery({ testImages }) {
             <div className="gallery__frame">
                 <div className="gallery__image-container">
                     { testImages.map(image => (
-                        <GalleryImage key={ image } image={image} />
+                        <GalleryImage key={ image } image={ image } />
                     )) }
                 </div>
             </div>
