@@ -1,12 +1,9 @@
-import { div } from "motion/react-client";
 import { useState } from "react";
 import "./AboutTheWork.scss";
 
 function AboutTheWork({ description, provenance }) {
     const [currentTab, setCurrentTab] = useState("about");
     
-
-
 
     return (
         <div className="lot__about">

@@ -5,6 +5,7 @@ import { AuctionAPI } from "../../apis/auctionAPI";
 import testImg1 from "../../assets/896.jpg";
 import AboutTheWork from "../../components/AboutTheWork/AboutTheWork";
 import ArtworkImage from "../../components/ArtworkImage/ArtworkImage";
+import BidForm from "../../components/BidForm/BidForm";
 import BidInfo from "../../components/BidInfo/BidInfo";
 import LotMainInfo from "../../components/LotMainInfo/LotMainInfo";
 import "./BidPage.scss";
@@ -13,6 +14,8 @@ function BidPage() {
     const { auctionId } = useParams();
     const [auctionDetail, setAuctionDetail] = useState({});
     const [artworkDetail, setArtworkDetail] = useState({});
+
+    const [currentPrice, setCurrentPrice] = useState(100)
 
     // api get auction by id
     useEffect(() => {
@@ -40,15 +43,18 @@ function BidPage() {
                     artist={"Claude Monet"} 
                     title={"Water Lily"} 
                     medium={"Oil on canvas"} 
-                    dimension={"10 x 10"} 
+                    dimension={"10 x 10cm"} 
                 />
                 <BidInfo 
-                    auctionId={auctionId} 
-                    leadBid={null}
+                    auctionId={1} 
+                    currentPrice={null}
                     askPrice={750}
                     watchers={2}
                 />
-                
+                <BidForm
+                    askPrice={100}
+                    currentPrice={currentPrice}
+                />
             </div>
         </div>
     )
