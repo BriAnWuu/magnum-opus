@@ -3,28 +3,21 @@ import { api } from "./configs/axiosConfigs";
 
 const ArtworksAPI = {
     get: async (id) => {
-        try {
-            const response = await api.request({
-                url: `/artworks/${id}`,
-                method: "GET",
-            })
-            return response.data;
-        } catch (error) {
-            console.error(error);
-        }
+        const response = await api.request({
+            url: `/artworks/${id}`,
+            method: "GET",
+        })
+        return response.data;
     },
     getAll: async () => {
-        try {
-            const response = await api.request({
-                url: '/artworks',
-                method: "GET",
-            })
-            return response.data;
-        } catch (error) {
-            console.error(error);
-        }
+        const response = await api.request({
+            url: '/artworks',
+            method: "GET",
+        })
+        return response.data;
     },
 }
+
 
 export {
     ArtworksAPI

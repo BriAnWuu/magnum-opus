@@ -1,14 +1,27 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { AuctionAPI } from "../../apis/auctionAPI";
 import testImg1 from "../../assets/896.jpg";
 import AboutTheWork from "../../components/AboutTheWork/AboutTheWork";
 import ArtworkImage from "../../components/ArtworkImage/ArtworkImage";
+import BidInfo from "../../components/BidInfo/BidInfo";
 import LotMainInfo from "../../components/LotMainInfo/LotMainInfo";
 import "./BidPage.scss";
 
 function BidPage() {
     const { auctionId } = useParams();
-    
+    const [auctionDetail, setAuctionDetail] = useState({});
+
     // api get auction by id
+    useEffect(() => {
+        try {
+            const auctionData = AuctionAPI.get(auctionId);
+            setAuctionDetail(auctionData);
+        } catch (error) {
+            console.error(error);
+        }
+    }, [])
+
     // api get artwork by artwork_id
     
     return (
@@ -25,7 +38,12 @@ function BidPage() {
                     medium={"Oil on canvas"} 
                     dimension={"10 x 10"} 
                 />
-
+                <BidInfo 
+                    auctionId={auctionId} 
+                    leadBid={null}
+                    askPrice={750}
+                    watchers={0}
+                />
             </div>
         </div>
     )

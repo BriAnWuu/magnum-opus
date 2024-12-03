@@ -23,6 +23,7 @@ function Gallery({ testImages }) {
                     <p className="gallery__place-origin">Place of Origin</p>
                     <p className="gallery__medium">Medium</p>
                     <p className="gallery__dimensions">Dimensions</p>
+                    <p className="galler__credit-line">Credit Line</p>
                 </div>
                 <div className="gallery__auction">
                     <p className="gallery__countdown">Countdown</p>
