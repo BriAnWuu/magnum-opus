@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ArtworksAPI } from "../../apis/artworksAPI";
 import { AuctionAPI } from "../../apis/auctionAPI";
 import testImg1 from "../../assets/896.jpg";
 import AboutTheWork from "../../components/AboutTheWork/AboutTheWork";
@@ -11,6 +12,7 @@ import "./BidPage.scss";
 function BidPage() {
     const { auctionId } = useParams();
     const [auctionDetail, setAuctionDetail] = useState({});
+    const [artworkDetail, setArtworkDetail] = useState({});
 
     // api get auction by id
     useEffect(() => {
@@ -20,6 +22,11 @@ function BidPage() {
     }, [])
 
     // api get artwork by artwork_id
+    useEffect(() => {
+        ArtworksAPI.get(auctionDetail.artwork_id).then((artworkData) => {
+            setArtworkDetail(artworkData);
+        });
+    }, [auctionDetail])
     
     return (
         <div className="lot">
@@ -41,6 +48,7 @@ function BidPage() {
                     askPrice={750}
                     watchers={2}
                 />
+                
             </div>
         </div>
     )
