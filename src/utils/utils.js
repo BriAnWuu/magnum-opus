@@ -6,9 +6,6 @@ const formatPrice = (price) => {
     }).format(price);
 }
 
-const bidValid = () => {
-    
-}
 
 export {
     formatPrice

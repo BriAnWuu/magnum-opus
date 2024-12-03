@@ -5,10 +5,24 @@
 
 .lot {
 
-    &__form-input {
+    &__form {
         width: 100%;
         display: flex;
         flex-direction: column;
+        gap: calc($SPACING);
+    }
+
+    &__increment-cta-container {
+        display: flex;
+        gap: calc($SPACING);
+    }
+
+    &__form-input {
+        
+        &--error {
+            border: 2px solid $COLOR-ERROR;
+            border-radius: 3px;
+        }
     }
 }
 

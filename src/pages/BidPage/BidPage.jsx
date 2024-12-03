@@ -52,8 +52,9 @@ function BidPage() {
                     watchers={2}
                 />
                 <BidForm
-                    askPrice={100}
+                    auctionId={1}
                     currentPrice={currentPrice}
+                    askPrice={100}
                 />
             </div>
         </div>

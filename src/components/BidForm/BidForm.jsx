@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { BidAPI } from "../../apis/bidAPI";
+import { UserAPI } from "../../apis/userAPI";
 import { formatPrice } from "../../utils/utils";
 import "./BidForm.scss";
 
-function BidForm({ askPrice, currentPrice }) {
+function BidForm({ auctionId, askPrice, currentPrice }) {
     const [bidPirce, setBidPrice] = useState(currentPrice || askPrice);
     const [ctaLabel, setCtaLabel] = useState({});
+    const [borderRed, setBorderRed] = useState(false);
     
     useEffect(() => {
         if (currentPrice < 1_000) {
@@ -56,30 +59,51 @@ function BidForm({ askPrice, currentPrice }) {
         }, 0)
     }
     
-    const submitHandler = (event) => {
+    const submitHandler = async (event) => {
+        sessionStorage.setItem("user_id", 2);
+        
         event.preventDefault();
         
         const minBid = (currentPrice || askPrice) + ctaLabel.button1;
 
         if (bidPirce < minBid || bidPirce === "") {
-            console.warn(`Your bid is lower than minimum bid ${formatPrice(minBid)}`)
+            console.warn(`Your bid is lower than minimum bid ${formatPrice(minBid)}`);
+            setBorderRed(true);
             return
         }
 
+        const user_id = sessionStorage.getItem("user_id");
+
         // api post bid
+        await BidAPI.postBid({
+            auction_id: auctionId,
+            user_id: user_id,
+            amount: bidPirce,
+        }).then((statusCode) => {
+            console.log(statusCode);
+        });
+
+        // api update user
+        await UserAPI.update(user_id, {
+            buyer: true,
+            watching: auctionId,
+        }).then((statusCode) => {
+            console.log(statusCode);
+        });
     }
 
     return (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className="lot__form">
             <label className="lot__form-label" htmlFor="inputBid">Place a Bid</label>
             <input
-                className="lot__form-input"
+                className={`lot__form-input ${borderRed ? "lot__form-input--error":""}`}
                 type="number" 
                 id="inputBid" 
                 placeholder={`ask price $${askPrice}`} 
                 onWheel={preventChangeOnWheel}
                 onChange={bidChangeHandler}
                 value={bidPirce}
+                onBlur={() => setBorderRed(false)}
             />
             <div className="lot__increment-cta-container">
                 <button
