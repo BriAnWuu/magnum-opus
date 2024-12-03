@@ -14,12 +14,9 @@ function BidPage() {
 
     // api get auction by id
     useEffect(() => {
-        try {
-            const auctionData = AuctionAPI.get(auctionId);
-            setAuctionDetail(auctionData);
-        } catch (error) {
-            console.error(error);
-        }
+        AuctionAPI.get(auctionId).then((auctionData) => {
+            setAuctionDetail(auctionData);        
+        });
     }, [])
 
     // api get artwork by artwork_id
@@ -42,7 +39,7 @@ function BidPage() {
                     auctionId={auctionId} 
                     leadBid={null}
                     askPrice={750}
-                    watchers={0}
+                    watchers={2}
                 />
             </div>
         </div>

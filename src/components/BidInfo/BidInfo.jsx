@@ -11,14 +11,11 @@ function BidInfo({ auctionId, currentPrice, askPrice, watchers }) {
     ]);
     
 
-    // useEffect(() => {
-    //     try {
-    //         const bidData = AuctionAPI.getBids(auctionId);
-    //         setBidList(bidData);
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }, [currentPrice]);
+    useEffect(() => {
+        AuctionAPI.getBids(auctionId).then((bidData) => {
+            setBidList(bidData);       
+        });
+    }, [currentPrice]);
 
     return (
         <section className="lot__bid-info">
@@ -30,7 +27,9 @@ function BidInfo({ auctionId, currentPrice, askPrice, watchers }) {
                     { formatPrice(currentPrice || askPrice) }
                 </h2>
             </div>
-            <p className="lot__watchers">{watchers ? `${watchers} watchers`:""}</p>
+            <p className="lot__watchers">
+                { watchers ? `${watchers} watcher${ watchers === 1 ? "":"s" }`:""}
+            </p>
             <div className="lot__bid-score-board">
                 <div className="lot__bid-score-board--row">
                     <span className="lot__bid-score-board--time">time</span>
