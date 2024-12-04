@@ -7,6 +7,7 @@ import AboutTheWork from "../../components/AboutTheWork/AboutTheWork";
 import ArtworkImage from "../../components/ArtworkImage/ArtworkImage";
 import BidForm from "../../components/BidForm/BidForm";
 import BidInfo from "../../components/BidInfo/BidInfo";
+import FollowButton from "../../components/FollowButton/FollowButton";
 import LotMainInfo from "../../components/LotMainInfo/LotMainInfo";
 import "./BidPage.scss";
 
@@ -56,6 +57,7 @@ function BidPage() {
                     currentPrice={currentPrice}
                     askPrice={100}
                 />
+                <FollowButton auctionId={1} />
             </div>
         </div>
     )
