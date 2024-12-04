@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Footer from './components/Footer/Footer'
@@ -10,7 +9,6 @@ import Home from './pages/Home/Home'
 import NotFound from './pages/NotFound/NotFound'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -20,7 +18,7 @@ function App() {
           <Route path='/' element={ <Home /> }></Route>
           <Route path='artwork' element={ <ArtworkPage /> }></Route>
           <Route path='artwork/:artworkId' element={ <ArtworkDetailPage /> }></Route>
-          <Route path='bid/:bidId' element={ <BidPage /> }></Route>
+          <Route path='bid/:auctionId' element={ <BidPage /> }></Route>
           <Route path='*' element={ <NotFound /> }></Route>
         </Routes>
         <Footer />

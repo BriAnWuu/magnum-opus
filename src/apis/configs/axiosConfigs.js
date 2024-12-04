@@ -1,9 +1,22 @@
 import axios from 'axios';
-import 'dotenv/config';
 
 const api = axios.create({
-    baseURL: process.env.VITE_APP_API_BASE_URL,
+    baseURL: import.meta.env.VITE_APP_API_BASE_URL,
 })
+
+const errorHandler = (error) => {
+    const statusCode = error.response?.status;
+
+    if (statusCode) {
+        console.error(error);
+    }
+
+    return Promise.reject(error);
+}
+
+api.interceptors.response.use(undefined, (error) => {
+    return errorHandler(error);
+});
 
 export {
     api

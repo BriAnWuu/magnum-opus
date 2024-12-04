@@ -20,9 +20,9 @@
         width: fit-content;
         display: flex;
         flex-wrap: nowrap;
-        gap: calc($spacing * 2);
+        gap: calc($SPACING * 2);
         list-style: none;
-        padding: calc($spacing * 2) 0;
+        padding: calc($SPACING * 2) 0;
         margin: 0;
     }
 }

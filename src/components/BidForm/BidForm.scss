@@ -1,0 +1,33 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.lot {
+
+    &__form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: calc($SPACING);
+    }
+
+    &__increment-cta-container {
+        display: flex;
+        gap: calc($SPACING);
+    }
+
+    &__form-input {
+        
+        &--error {
+            border: 2px solid $COLOR-ERROR;
+            border-radius: 3px;
+        }
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

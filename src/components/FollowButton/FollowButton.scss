@@ -1,0 +1,15 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.lot__follow-button {
+    min-width: 5rem;
+    max-width: 10rem;
+    align-self: flex-end;
+    border: 2px solid white;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    padding: calc($SPACING) calc($SPACING * 2);
+}

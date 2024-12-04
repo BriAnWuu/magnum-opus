@@ -12,8 +12,6 @@ function Discover() {
             transition: {
                 duration: 0.5,
                 ease: "easeIn",
-                // delayChildren: 0.5,
-                // staggerDirection: -1,
             }
         }
     }
