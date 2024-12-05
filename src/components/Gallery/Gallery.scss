@@ -39,11 +39,17 @@
         &--title {
             flex-direction: column;
             border-bottom: 1px solid $COLOR-GRID-BORDER;
+            overflow: scroll;
+            scrollbar-width: none;
         }
 
         &--info {
             flex-direction: row;
             border-right: 1px solid $COLOR-GRID-BORDER;
+
+            p {
+                @include font-small-body;
+            }
         }
 
         &--navigate {
@@ -54,15 +60,15 @@
     }
 
     &__title {
-        font-family: "Fraunces";
+        @include font-heading;
     }
     &__year {
-        font-family: "Fraunces Italic";
+        @include font-sub-heading;
     }
     &__artist {
-        font-family: "Libre Caslon Display";
+        @include font-sub-heading;
     }
     &__description {
-        font-family: "Yesteryear";
+        @include font-body;
     }
 }

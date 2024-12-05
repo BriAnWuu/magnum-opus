@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 @mixin aspect-ratio {
     aspect-ratio: 4/3;
 }
@@ -6,3 +8,30 @@
 
 
 
+@mixin font-heading {
+    font-family: "Fraunces Italic", Tahoma, Verdana, sans-serif;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    color: $COLOR-PRIMARY-TEXT;
+}
+
+@mixin font-sub-heading {
+    font-family: "Fraunces", Tahoma, Verdana, sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    color: $COLOR-SECONDARY-TEXT;
+}
+
+@mixin font-body {
+    font-family: "Libre Caslon Display", Courier, monospace;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: $COLOR-PRIMARY-TEXT;
+}
+
+@mixin font-small-body {
+    font-family: "Libre Caslon Display", Courier, monospace;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: $COLOR-PRIMARY-TEXT;
+}
