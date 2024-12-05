@@ -18,7 +18,7 @@ function App() {
           <Route path='/' element={ <Home /> }></Route>
           <Route path='artwork' element={ <ArtworkPage /> }></Route>
           <Route path='artwork/:artworkId' element={ <ArtworkDetailPage /> }></Route>
-          <Route path='bid/:auctionId' element={ <BidPage /> }></Route>
+          <Route path='bid/:artworkId' element={ <BidPage /> }></Route>
           <Route path='*' element={ <NotFound /> }></Route>
         </Routes>
         <Footer />

@@ -12,7 +12,7 @@ import LotMainInfo from "../../components/LotMainInfo/LotMainInfo";
 import "./BidPage.scss";
 
 function BidPage() {
-    const { auctionId } = useParams();
+    const { artworkId } = useParams();
     const [auctionDetail, setAuctionDetail] = useState({});
     const [artworkDetail, setArtworkDetail] = useState({});
 
@@ -20,14 +20,14 @@ function BidPage() {
 
     // api get auction by id
     useEffect(() => {
-        AuctionAPI.get(auctionId).then((auctionData) => {
+        AuctionAPI.get(artworkId).then((auctionData) => {
             setAuctionDetail(auctionData);        
         });
     }, [])
 
     // api get artwork by artwork_id
     useEffect(() => {
-        ArtworksAPI.get(auctionDetail.artwork_id).then((artworkData) => {
+        ArtworksAPI.get(artworkId).then((artworkData) => {
             setArtworkDetail(artworkData);
         });
     }, [auctionDetail])

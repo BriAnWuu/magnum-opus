@@ -2,9 +2,9 @@ import { api } from "./configs/axiosConfigs";
 
 
 const AuctionAPI = {
-    get: async (id) => {
+    get: async (artwork_id) => {
         const response = await api.request({
-            url: `/auction/${id}`,
+            url: `/auction/${artwork_id}`,
             method: "GET",
         })
         return response.data;
