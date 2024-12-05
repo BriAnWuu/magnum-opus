@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import "./GalleryImage.scss";
 
 
-function GalleryImage({ image }) {
+function GalleryImage({ imageId }) {
 
     const [imageRef, animate] = useAnimate();
     const inView = useInView(imageRef, { amount: 0.5 });
@@ -44,7 +44,7 @@ function GalleryImage({ image }) {
         <>
             <motion.img 
                 className="gallery__image" 
-                src={image} 
+                src={`${import.meta.env.VITE_APP_IMG_BASE_URL}/${imageId}.jpg`} 
                 ref={imageRef}
                 initial={{
                     opacity: 0,

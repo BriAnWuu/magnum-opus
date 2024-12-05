@@ -2,13 +2,13 @@ import GalleryImage from "../GalleryImage/GalleryImage";
 import GalleryNav from "../GalleryNav/GalleryNav";
 import "./Gallery.scss";
 
-function Gallery({ testImages }) {
+function Gallery({ galleryArtworks }) {
     return (
         <div className="gallery">
             <div className="gallery__frame">
                 <div className="gallery__image-container">
-                    { testImages.map(image => (
-                        <GalleryImage key={ image } image={ image } />
+                    { galleryArtworks.map(image => (
+                        <GalleryImage key={ image.id } imageId={ image.id } />
                     )) }
                 </div>
             </div>

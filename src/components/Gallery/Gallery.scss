@@ -48,7 +48,7 @@
             border-right: 1px solid $COLOR-GRID-BORDER;
 
             p {
-                @include font-small-body;
+                @include font-small-body($COLOR-SECONDARY-TEXT);
             }
         }
 
@@ -69,6 +69,6 @@
         @include font-sub-heading;
     }
     &__description {
-        @include font-body;
+        @include font-body($COLOR-PRIMARY-TEXT);
     }
 }

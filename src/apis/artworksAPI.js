@@ -9,10 +9,13 @@ const ArtworksAPI = {
         })
         return response.data;
     },
-    getAll: async () => {
+    getAll: async (query = null) => {
         const response = await api.request({
             url: '/artworks',
             method: "GET",
+            params: {
+                q: query,
+            },
         })
         return response.data;
     },

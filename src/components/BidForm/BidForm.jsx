@@ -81,6 +81,8 @@ function BidForm({ auctionId, askPrice, currentPrice }) {
             amount: bidPirce,
         }).then((statusCode) => {
             console.log(statusCode);
+        }).catch((error) => {
+            console.error(error)
         });
 
         // api update user
@@ -89,6 +91,8 @@ function BidForm({ auctionId, askPrice, currentPrice }) {
             watching: auctionId,
         }).then((statusCode) => {
             console.log(statusCode);
+        }).catch((error) => {
+            console.error(error)
         });
     }
 
