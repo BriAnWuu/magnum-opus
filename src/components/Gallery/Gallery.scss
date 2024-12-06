@@ -25,7 +25,6 @@
     }
 
     &__image-container {
-       flex-direction: column;
         width: 100%;
         height: fit-content;
         position: relative;
@@ -38,18 +37,67 @@
 
         &--title {
             flex-direction: column;
-            border-bottom: 1px solid $BORDER-COLOR;
+            width: 100%;
+            aspect-ratio: 16/15;
+            border-bottom: 1px solid $COLOR-GRID-BORDER;
+            overflow: scroll;
+            scrollbar-width: none;
+            padding-top: 0;
         }
 
         &--info {
             flex-direction: row;
-            border-right: 1px solid $BORDER-COLOR;
+            gap: calc($SPACING * 2);
+            border-right: 1px solid $COLOR-GRID-BORDER;
+            overflow: hidden;
+
+            p {
+                @include font-small-body($COLOR-SECONDARY-TEXT);
+            }
         }
 
         &--navigate {
             flex-direction: row;
             justify-content: space-around;
             align-items: flex-end;
+            position: relative;
+        }
+    }
+
+    &__title-inner-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: relative;
+    }
+
+    &__title {
+        @include font-heading;
+        margin-bottom: calc($SPACING * 2)
+    }
+    &__year {
+        @include font-sub-heading;
+        margin-bottom: calc($SPACING);
+    }
+    &__artist {
+        @include font-sub-heading;
+        margin-bottom: calc($SPACING * 2);
+        white-space: pre-wrap;
+    }
+    &__description {
+        @include font-body($COLOR-PRIMARY-TEXT);
+    }
+
+    &__details--value {
+        width: 30%;
+        overflow: scroll;
+
+    }
+    &__details-inner-container {
+        position: relative;
+
+        p {
+            white-space: nowrap;
         }
     }
 }

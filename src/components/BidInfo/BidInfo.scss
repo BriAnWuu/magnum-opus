@@ -2,7 +2,7 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
-$TABLE-BORDER: 1px solid $BORDER-COLOR;
+$TABLE-BORDER: 1px solid $COLOR-GRID-BORDER;
 
 .lot {
     &__bid-info {

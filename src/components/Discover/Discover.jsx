@@ -1,4 +1,4 @@
-import { delay, easeIn, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Scroller from "../Scroller/Scroller";
 import "./Discover.scss";
 
@@ -54,7 +54,7 @@ function Discover() {
                             scale: 1,
                             transition: {
                                 delay: 2,
-                                duration: 3,
+                                duration: 2,
                                 ease: "easeIn",
                             }
                         }}

@@ -20,16 +20,24 @@ function BidPage() {
 
     // api get auction by id
     useEffect(() => {
-        AuctionAPI.get(artworkId).then((auctionData) => {
+        AuctionAPI.get(artworkId)
+        .then((auctionData) => {
             setAuctionDetail(auctionData);        
+        })
+        .catch((error) => {
+            console.error(error)
         });
     }, [])
 
     // api get artwork by artwork_id
     useEffect(() => {
-        ArtworksAPI.get(artworkId).then((artworkData) => {
+        ArtworksAPI.get(artworkId)
+        .then((artworkData) => {
             setArtworkDetail(artworkData);
-        });
+        })
+        .catch((error) => {
+            console.error(error)
+        });;
     }, [auctionDetail])
     
     return (

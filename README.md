@@ -78,9 +78,9 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 - Get single artwork by artwork id
 
-**GET /auction /:id**
+**GET /auction /:artworkId**
 
-- Get single auction by auction id
+- Get single auction by artwork id
 
 **GET /auction /:id /bids**
 
