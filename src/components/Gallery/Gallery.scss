@@ -48,6 +48,7 @@
         &--info {
             flex-direction: row;
             border-right: 1px solid $COLOR-GRID-BORDER;
+            overflow: hidden;
 
             p {
                 @include font-small-body($COLOR-SECONDARY-TEXT);
@@ -58,6 +59,7 @@
             flex-direction: row;
             justify-content: space-around;
             align-items: flex-end;
+            position: relative;
         }
     }
 
@@ -83,5 +85,18 @@
     }
     &__description {
         @include font-body($COLOR-PRIMARY-TEXT);
+    }
+
+    &__details--value {
+        max-width: 30%;
+        overflow: scroll;
+
+    }
+    &__details-inner-container {
+        position: relative;
+
+        p {
+            white-space: nowrap;
+        }
     }
 }

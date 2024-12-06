@@ -7,7 +7,7 @@
     &__dots-container {
         align-self: center;
         position: absolute;
-        bottom: -45px;
+        top: calc(($SPACING * -4));
         display: flex;
         gap: calc($SPACING);
     }

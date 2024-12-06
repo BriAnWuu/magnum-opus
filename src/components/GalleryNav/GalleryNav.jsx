@@ -1,12 +1,22 @@
 import { motion } from "framer-motion";
 import "./GalleryNav.scss";
 
-function GalleryNav({ direction }) {
+function GalleryNav({ artworksLength, setImageIndex, direction }) {
+    
+    const navigationHandler = () => {
+        if (direction === 'right') {
+            setImageIndex(prev => (prev + 1) % artworksLength);
+        } else {
+            setImageIndex(prev => (prev - 1 + artworksLength) % artworksLength);
+        }
+    }
+    
     return (
         <motion.div 
             className="gallery__navigate-icon"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
+            onClick={() => navigationHandler()}
         >
             { direction === "left" ? 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">

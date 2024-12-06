@@ -1,5 +1,6 @@
 import parse from "html-react-parser";
 import { useState } from "react";
+import { convertBC, getCurrentPrice } from "../../utils/utils";
 import Dots from "../Dots/Dots";
 import GalleryImage from "../GalleryImage/GalleryImage";
 import GalleryNav from "../GalleryNav/GalleryNav";
@@ -7,6 +8,8 @@ import "./Gallery.scss";
 
 function Gallery({ galleryArtworks }) {
     const [imageIndex, setImageIndex] = useState(0);
+    
+
     if (!galleryArtworks) {
         return (
             <p>Loading...</p>
@@ -24,8 +27,8 @@ function Gallery({ galleryArtworks }) {
                     <h2 className="gallery__title">{ galleryArtworks[imageIndex]?.title }</h2>
                     <p className="gallery__year">
                         { galleryArtworks[imageIndex]?.date_start === galleryArtworks[imageIndex]?.date_end ?
-                            galleryArtworks[imageIndex]?.date_end :
-                            `${ galleryArtworks[imageIndex]?.date_start } - ${ galleryArtworks[imageIndex]?.date_end }`
+                            convertBC(galleryArtworks[imageIndex]?.date_end) :
+                            `${ convertBC(galleryArtworks[imageIndex]?.date_start) } ~ ${ convertBC(galleryArtworks[imageIndex]?.date_end) }`
                         }
                     </p>
                     <p className="gallery__artist">{ galleryArtworks[imageIndex]?.artist_display }</p>
@@ -35,29 +38,58 @@ function Gallery({ galleryArtworks }) {
                             "Description not available"
                         }
                     </div>
-                </div>
-                <Dots
-                    galleryArtworks={galleryArtworks} 
-                    imageIndex={imageIndex} 
-                    setImageIndex={setImageIndex} 
-                />   
+                </div>  
             </div>
             <div className="gallery__section gallery__section--info">
                 <div className="gallery__details">
-                    <p className="gallery__place-origin">Place of Origin</p>
+                    <p className="gallery__place-origin">Place</p>
                     <p className="gallery__medium">Medium</p>
                     <p className="gallery__dimensions">Dimensions</p>
                     <p className="galler__credit-line">Credit Line</p>
+                </div>
+                <div className="gallery__details gallery__details--value">
+                    <div className="gallery__details-inner-container">
+                        <p className="gallery__place-origin">{ galleryArtworks[imageIndex]?.place_of_origin }</p>
+                        <p className="gallery__medium">{ galleryArtworks[imageIndex]?.medium_display }</p>
+                        <p className="gallery__dimensions">{ galleryArtworks[imageIndex]?.dimensions }</p>
+                        <p className="galler__credit-line">{ galleryArtworks[imageIndex]?.credit_line }</p>
+                    </div>
                 </div>
                 <div className="gallery__auction">
                     <p className="gallery__countdown">Countdown</p>
                     <p className="gallery__bid-price">Price</p>
                     <p className="gallery__place-bid">Place a bid</p>
                 </div>
+                <div className="gallery__auction">
+                    <p className="gallery__countdown">
+                        Countdown
+                    </p>
+                    <p className="gallery__bid-price">
+                        { galleryArtworks[imageIndex]?.ask_price && 
+                            getCurrentPrice(
+                                galleryArtworks[imageIndex]?.ask_price, 
+                                galleryArtworks[imageIndex]?.leading_bid_price
+                            ) 
+                        }
+                    </p>
+                </div>
             </div>
             <div className="gallery__section gallery__section--navigate">
-                <GalleryNav direction={"left"} />
-                <GalleryNav direction={"right"} />
+                <Dots
+                    galleryArtworks={galleryArtworks} 
+                    imageIndex={imageIndex} 
+                    setImageIndex={setImageIndex} 
+                /> 
+                <GalleryNav 
+                    direction={"left"} 
+                    artworksLength={galleryArtworks.length}
+                    setImageIndex={setImageIndex} 
+                />
+                <GalleryNav 
+                    direction={"right"}
+                    artworksLength={galleryArtworks.length}
+                    setImageIndex={setImageIndex} 
+                />
             </div>
         </div>
     )
