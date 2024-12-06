@@ -1,6 +1,15 @@
+import { convertBC } from "../../utils/utils";
 import "./LotMainInfo.scss";
 
-function LotMainInfo({ auctionId, artist, title, medium, dimension }) {
+function LotMainInfo({ 
+    auctionId, 
+    artist, 
+    title,
+    date_start,
+    date_end, 
+    medium, 
+    dimension 
+}) {
     return (
         <section className="lot__main-info"> 
             {/* medium */}
@@ -8,7 +17,11 @@ function LotMainInfo({ auctionId, artist, title, medium, dimension }) {
             {/* large */}
             <h2 className="lot__artist-name">{artist}</h2>
             {/* large italic */}
-            <h3 className="lot__artwork-title">{title}</h3>
+            <h3 className="lot__artwork-title">
+                {`${title}, ${convertBC(date_start)} ${ date_start === date_end ? 
+                    "" : ` - ${convertBC(date_end)}`
+                }`}
+            </h3>
             {/* small */}
             <p className="lot__medium">{medium}</p>
             <p className="lot__dimension">{dimension}</p>

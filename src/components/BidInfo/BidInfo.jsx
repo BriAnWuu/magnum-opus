@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
 import { AuctionAPI } from "../../apis/auctionAPI";
 import { formatPrice } from "../../utils/utils";
+import Countdown from "../Countdown/Countdown";
 import "./BidInfo.scss";
 
-function BidInfo({ auctionId, currentPrice, askPrice, watchers }) {
+function BidInfo({ 
+    auctionId, 
+    currentPrice, 
+    askPrice, 
+    watchers,
+    open_at, 
+    close_at
+}) {
     const [bidList, setBidList] = useState([
         {time: 0, bid: 100},
         {time: 1, bid: 200},
@@ -12,8 +20,12 @@ function BidInfo({ auctionId, currentPrice, askPrice, watchers }) {
     
 
     useEffect(() => {
-        AuctionAPI.getBids(auctionId).then((bidData) => {
+        AuctionAPI.getBids(auctionId)
+        .then((bidData) => {
             setBidList(bidData);       
+        })
+        .catch((error) => {
+            console.error(error)
         });
     }, [currentPrice]);
 
@@ -41,6 +53,9 @@ function BidInfo({ auctionId, currentPrice, askPrice, watchers }) {
                         <div>{bid.bid}</div>
                     </div> 
                 ))}
+            </div>
+            <div className="lot__countdown-timer">
+                <Countdown open_at={open_at} close_at={close_at} />
             </div>
         </section>
     )

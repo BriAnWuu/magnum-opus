@@ -1,9 +1,12 @@
 import "./ArtworkImage.scss";
 
-function ArtworkImage({ image }) {
+function ArtworkImage({ imageId, alt_text }) {
     return (
         <>
-            <img src={image} alt="" />
+            <img 
+                src={ `${import.meta.env.VITE_APP_IMG_BASE_URL}/${imageId}.jpg` } 
+                alt= { alt_text }
+            />
         </>
     )
 };

@@ -10,6 +10,8 @@ function FollowButton({ auctionId }) {
             watching: auctionId,
         }).then((statusCode) => {
             console.log(statusCode);
+        }).catch((error) => {
+            console.error(error)
         });
     }
 

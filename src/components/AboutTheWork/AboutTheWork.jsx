@@ -1,3 +1,4 @@
+import parse from "html-react-parser";
 import { useState } from "react";
 import "./AboutTheWork.scss";
 
@@ -23,12 +24,12 @@ function AboutTheWork({ description, provenance }) {
             </div>
             { currentTab === "about" &&
                 <div className="lot__detail-text">
-                    {description}
+                    { description ? parse(description) : "Description on this work not available at this time" }
                 </div>
             }
             { currentTab === "provenance" &&
                 <div className="lot__detail-text">
-                    <p>{provenance}</p>
+                    <p>{ provenance ? provenance : "Provenance on this work not available at this time" }</p>
                 </div>
             }
         </div>
