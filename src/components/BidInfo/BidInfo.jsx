@@ -1,33 +1,15 @@
-import { useEffect, useState } from "react";
-import { AuctionAPI } from "../../apis/auctionAPI";
 import { formatPrice } from "../../utils/utils";
 import Countdown from "../Countdown/Countdown";
 import "./BidInfo.scss";
 
-function BidInfo({ 
-    auctionId, 
+function BidInfo({
     currentPrice, 
     askPrice, 
     watchers,
     open_at, 
-    close_at
+    close_at,
+    bidList
 }) {
-    const [bidList, setBidList] = useState([
-        {time: 0, bid: 100},
-        {time: 1, bid: 200},
-        {time: 10, bid: 250},
-    ]);
-    
-
-    useEffect(() => {
-        AuctionAPI.getBids(auctionId)
-        .then((bidData) => {
-            setBidList(bidData);       
-        })
-        .catch((error) => {
-            console.error(error)
-        });
-    }, [currentPrice]);
 
     return (
         <section className="lot__bid-info">
@@ -38,19 +20,21 @@ function BidInfo({
                 <h2 className="lot__current-price-number">
                     { formatPrice(currentPrice || askPrice) }
                 </h2>
-            </div>
-            <p className="lot__watchers">
-                { watchers ? `${watchers} watcher${ watchers === 1 ? "":"s" }`:""}
-            </p>
+            </div> 
+            { watchers > 0 && 
+                <p className="lot__watchers">
+                    {`${watchers} watcher${ watchers === 1 ? "":"s" }`}
+                </p>
+            }
             <div className="lot__bid-score-board">
                 <div className="lot__bid-score-board--row">
-                    <span className="lot__bid-score-board--time">time</span>
-                    <span>bid</span>
+                    <span className="lot__bid-score-board--time lot__board-header">time</span>
+                    <span className="lot__board-header">bid</span>
                 </div>
-                { bidList.map((bid, idx) => (
+                { bidList?.map((bid, idx) => (
                     <div key={idx} className="lot__bid-score-board--row">   
-                        <div className="lot__bid-score-board--time">{bid.time}</div>
-                        <div>{bid.bid}</div>
+                        <div className="lot__bid-score-board--time lot__board-body">{bid.created_at}</div>
+                        <div className="lot__board-body">{formatPrice(bid.amount)}</div>
                     </div> 
                 ))}
             </div>

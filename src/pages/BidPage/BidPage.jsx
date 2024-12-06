@@ -24,7 +24,22 @@ function BidPage() {
         .catch((error) => {
             console.error(error)
         });
-    }, [])
+    }, []);
+
+    const [bidList, setBidList] = useState([]);
+    
+    useEffect(() => {
+        {
+            AuctionAPI.getBids(auctionDetail.id)
+            .then((bidData) => {
+                setBidList(bidData);       
+            })
+            .catch((error) => {
+                console.error(error)
+            });
+        }
+    }, [auctionDetail]);
+
     
     return (
         <div className="lot">
@@ -55,6 +70,7 @@ function BidPage() {
                     watchers={ auctionDetail?.watchers?.length }
                     open_at={ auctionDetail?.open_at }
                     close_at={ auctionDetail?.close_at }
+                    bidList={ bidList }
                 />
                 <BidForm
                     auctionId={ auctionDetail?.id }
