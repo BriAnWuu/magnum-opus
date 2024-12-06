@@ -37,7 +37,7 @@ function BidPage() {
         })
         .catch((error) => {
             console.error(error)
-        });;
+        });
     }, [auctionDetail])
     
     return (

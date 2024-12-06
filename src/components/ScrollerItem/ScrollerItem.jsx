@@ -34,7 +34,7 @@ function ScrollerItem({ artwork }) {
             <motion.img 
                 className="discover__scroller-image"
                 src={ `${import.meta.env.VITE_APP_IMG_BASE_URL}/${artwork.id}.jpg` } 
-                alt="" 
+                alt={ artwork.alt_text } 
             />
         </motion.li>
     )
