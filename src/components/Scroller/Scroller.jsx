@@ -46,7 +46,7 @@ function Scroller({ discoverArtworks }) {
                 }
             });
         } else {
-            const scrollerLoop = animate(xTranslation, [0, duplicationTriggerPoint], {
+            scrollerLoop = animate(xTranslation, [0, duplicationTriggerPoint], {
                 ease: "linear",
                 duration: duration,
                 repeat: Infinity,

@@ -16,7 +16,7 @@ function BidPage() {
     const [auctionDetail, setAuctionDetail] = useState({});
     const [artworkDetail, setArtworkDetail] = useState({});
 
-    const [currentPrice, setCurrentPrice] = useState(1_000)
+    const [currentPrice, setCurrentPrice] = useState(10_000)
 
     // api get auction by id
     useEffect(() => {
@@ -57,13 +57,13 @@ function BidPage() {
                 <BidInfo 
                     auctionId={1} 
                     currentPrice={null}
-                    askPrice={750}
+                    askPrice={1_000}
                     watchers={2}
                 />
                 <BidForm
                     auctionId={1}
                     currentPrice={currentPrice}
-                    askPrice={100}
+                    askPrice={1_000}
                 />
                 <FollowButton auctionId={1} />
             </div>
