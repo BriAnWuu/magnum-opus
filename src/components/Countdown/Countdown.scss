@@ -1,0 +1,13 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.countdown-display {
+    display: flex;
+    gap: calc($SPACING);
+}
+
+.countdown-value {
+    @include font-small-body($COLOR-SECONDARY-TEXT);
+}

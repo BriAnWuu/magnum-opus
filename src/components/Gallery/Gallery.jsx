@@ -1,6 +1,7 @@
 import parse from "html-react-parser";
 import { useState } from "react";
-import { convertBC, getCurrentPrice } from "../../utils/utils";
+import { convertBC, formatPrice, getCurrentPrice } from "../../utils/utils";
+import Countdown from "../Countdown/Countdown";
 import Dots from "../Dots/Dots";
 import GalleryImage from "../GalleryImage/GalleryImage";
 import GalleryNav from "../GalleryNav/GalleryNav";
@@ -56,20 +57,22 @@ function Gallery({ galleryArtworks }) {
                     </div>
                 </div>
                 <div className="gallery__auction">
-                    <p className="gallery__countdown">Countdown</p>
+                    <p className="gallery__countdown">Ending in</p>
                     <p className="gallery__bid-price">Price</p>
                     <p className="gallery__place-bid">Place a bid</p>
                 </div>
                 <div className="gallery__auction">
-                    <p className="gallery__countdown">
-                        Countdown
-                    </p>
+                    <Countdown
+                        open_at={galleryArtworks[imageIndex]?.open_at}
+                        close_at={galleryArtworks[imageIndex]?.close_at}
+                    />
                     <p className="gallery__bid-price">
                         { galleryArtworks[imageIndex]?.ask_price && 
-                            getCurrentPrice(
-                                galleryArtworks[imageIndex]?.ask_price, 
-                                galleryArtworks[imageIndex]?.leading_bid_price
-                            ) 
+                            formatPrice(
+                                getCurrentPrice(
+                                    galleryArtworks[imageIndex]?.ask_price, 
+                                    galleryArtworks[imageIndex]?.leading_bid_price
+                            )) 
                         }
                     </p>
                 </div>

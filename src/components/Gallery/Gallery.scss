@@ -47,6 +47,7 @@
 
         &--info {
             flex-direction: row;
+            gap: calc($SPACING * 2);
             border-right: 1px solid $COLOR-GRID-BORDER;
             overflow: hidden;
 
@@ -88,7 +89,7 @@
     }
 
     &__details--value {
-        max-width: 30%;
+        width: 30%;
         overflow: scroll;
 
     }

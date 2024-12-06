@@ -54,7 +54,7 @@ function Discover() {
                             scale: 1,
                             transition: {
                                 delay: 2,
-                                duration: 3,
+                                duration: 2,
                                 ease: "easeIn",
                             }
                         }}
