@@ -6,6 +6,20 @@
 }
 
 @font-face {
+    font-family: 'Fraunces Italic';
+    src: url("../../assets/fonts/Fraunces-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Fraunces';
+    src: url("../../assets/fonts/Fraunces-Normal.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Fraunces';
     src: url("../../assets/fonts/Fraunces-Normal.ttf") format("truetype");
     font-weight: 400;
