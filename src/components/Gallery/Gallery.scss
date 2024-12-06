@@ -25,7 +25,6 @@
     }
 
     &__image-container {
-       flex-direction: column;
         width: 100%;
         height: fit-content;
         position: relative;
@@ -38,9 +37,12 @@
 
         &--title {
             flex-direction: column;
+            width: 100%;
+            aspect-ratio: 16/15;
             border-bottom: 1px solid $COLOR-GRID-BORDER;
             overflow: scroll;
             scrollbar-width: none;
+            padding-top: 0;
         }
 
         &--info {
@@ -59,14 +61,25 @@
         }
     }
 
+    &__title-inner-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: relative;
+    }
+
     &__title {
         @include font-heading;
+        margin-bottom: calc($SPACING * 2)
     }
     &__year {
         @include font-sub-heading;
+        margin-bottom: calc($SPACING);
     }
     &__artist {
         @include font-sub-heading;
+        margin-bottom: calc($SPACING * 2);
+        white-space: pre-wrap;
     }
     &__description {
         @include font-body($COLOR-PRIMARY-TEXT);
