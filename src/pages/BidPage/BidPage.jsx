@@ -16,7 +16,7 @@ function BidPage() {
     const [auctionDetail, setAuctionDetail] = useState({});
     const [artworkDetail, setArtworkDetail] = useState({});
 
-    const [currentPrice, setCurrentPrice] = useState(100000)
+    const [currentPrice, setCurrentPrice] = useState(1_000)
 
     // api get auction by id
     useEffect(() => {
@@ -44,7 +44,7 @@ function BidPage() {
         <div className="lot">
             <div className="lot__left-column">
                 <ArtworkImage image={testImg1} />
-                <AboutTheWork description={"Description\nDescription\nDescription\n"} provenance={"Provenance\nProvenance\nProvenance\n"} />
+                <AboutTheWork description={"Description"} provenance={"Provenance"} />
             </div>
             <div className="lot__right-column">
                 <LotMainInfo 

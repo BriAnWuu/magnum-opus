@@ -15,36 +15,67 @@ import testImg1 from "../../assets/896.jpg";
 import { motion } from "framer-motion";
 import { animate } from "motion";
 import { useMotionValue } from "motion/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ScrollerItem from "../ScrollerItem/ScrollerItem";
 import "./Scroller.scss";
 
-function Scroller() {
+function Scroller({ discoverArtworks }) {
     const testImages = [ testImg1, testImg2, testImg3, testImg4, testImg5, testImg6, testImg7, testImg8, testImg9, testImg10, testImg11, testImg12 ];
+
+    const FAST_DURATION = 35;
+    const SLOW_DURATION = 60;
+    const [duration, setDuration] = useState(FAST_DURATION);
 
     const [scrollerRef, { width }] = useMeasure();
     const xTranslation = useMotionValue(0);
 
+    const [finishLoop, setFinishLoop] = useState(false);
+    const [rerender, setRerender] = useState(false);
+
     useEffect(() => {
+        let scrollerLoop;
         const duplicationTriggerPoint = -width / 2 - 8;
 
-        const scrollerLoop = animate(xTranslation, [0, duplicationTriggerPoint], {
-            ease: "linear",
-            duration: 55,
-            repeat: Infinity,
-            repeatType: "loop",
-            repeatDelay: 0,
-        });
+        if (finishLoop) {
+            scrollerLoop = animate(xTranslation, [xTranslation.get(), duplicationTriggerPoint], {
+                ease: "linear",
+                duration: duration * (1 - xTranslation.get() / duplicationTriggerPoint),
+                onComplete: () => {
+                    setFinishLoop(false);
+                    setRerender(prev => !prev);
+                }
+            });
+        } else {
+            const scrollerLoop = animate(xTranslation, [0, duplicationTriggerPoint], {
+                ease: "linear",
+                duration: duration,
+                repeat: Infinity,
+                repeatType: "loop",
+                repeatDelay: 0,
+            });
+        }
 
-        return scrollerLoop.stop;
-    }, [xTranslation, width]);
+        return scrollerLoop?.stop;
+    }, [xTranslation, width, duration, rerender]);
 
 
     return (
         <div className="discover__scroller-container">
-            <motion.ul className="discover__scroller" ref={scrollerRef} style={{x: xTranslation}}>
-                { [...testImages, ...testImages].map((image, idx) => (
-                    <ScrollerItem key={ idx } image={ image } />
+            <motion.ul 
+                className="discover__scroller" 
+                ref={scrollerRef} 
+                style={{x: xTranslation}}
+                onHoverStart={() => {
+                    setFinishLoop(true);
+                    setDuration(SLOW_DURATION);
+                }}
+                onHoverEnd={() => {
+                    setFinishLoop(true);
+                    setDuration(FAST_DURATION);
+                }}
+            >
+                { [...discoverArtworks, ...discoverArtworks].map((artwork, idx) => (
+                    <ScrollerItem key={ idx } artwork={ artwork } />
                 )) }
             </motion.ul>
         </div>

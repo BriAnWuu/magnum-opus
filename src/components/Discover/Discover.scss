@@ -2,3 +2,13 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
+.discover {
+    display: flex;
+    flex-direction: column;
+    padding-block: calc($SPACING * 4);
+
+    &__title {
+        padding: calc($SPACING * 6) calc($SPACING * 4);
+        @include font-sub-title;
+    }
+}
