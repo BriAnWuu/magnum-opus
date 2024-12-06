@@ -6,7 +6,12 @@
 
 
 
-
+@mixin font-sub-title{
+    font-family: "Fraunces Italic", Tahoma, Verdana, sans-serif;
+    font-size: 3rem;
+    line-height: 3.25rem;
+    color: $COLOR-PRIMARY-TEXT;
+}
 
 @mixin font-heading {
     font-family: "Fraunces Italic", Tahoma, Verdana, sans-serif;
