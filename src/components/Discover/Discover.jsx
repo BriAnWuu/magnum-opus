@@ -1,4 +1,4 @@
-import { delay, easeIn, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Scroller from "../Scroller/Scroller";
 import "./Discover.scss";
 
