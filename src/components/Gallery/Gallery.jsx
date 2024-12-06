@@ -20,7 +20,10 @@ function Gallery({ galleryArtworks }) {
         <div className="gallery">
             <div className="gallery__frame">
                 <div className="gallery__image-container">
-                    <GalleryImage imageId={ galleryArtworks[imageIndex]?.id } />
+                    <GalleryImage 
+                        imageId={ galleryArtworks[imageIndex]?.id }
+                        imageAlt={ galleryArtworks[imageIndex]?.alt_text } 
+                    />
                 </div>
             </div>
             <div className="gallery__section gallery__section--title">

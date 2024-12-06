@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import Scroller from "../Scroller/Scroller";
 import "./Discover.scss";
 
-function Discover() {
+function Discover({ discoverArtworks }) {
 
     const titleAnimate = {
-        hidden: { opacity: 0, y: "50px" },
+        hidden: { opacity: 0, y: "100px" },
         show: { 
             opacity: 1, 
             y: 0,
