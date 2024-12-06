@@ -64,7 +64,7 @@ function Discover({ discoverArtworks }) {
                 </motion.span>
             </motion.h2>
 
-            <Scroller />
+            <Scroller discoverArtworks={discoverArtworks} />
         </section>
     )
 };
