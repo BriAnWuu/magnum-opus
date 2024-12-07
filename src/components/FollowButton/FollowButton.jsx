@@ -19,7 +19,7 @@ function FollowButton({ auctionId }) {
         <motion.div 
             className="lot__follow-button"
             onClick={() => followHandler()}
-            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+            whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
             whileTap={{ scale: 0.9 }}
         >
             Create Alert

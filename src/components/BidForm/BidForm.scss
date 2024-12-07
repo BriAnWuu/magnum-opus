@@ -40,7 +40,7 @@
 
     &__increment-cta-container {
         display: flex;
-        gap: calc($SPACING);
+        gap: calc($SPACING * 2);
         margin-block: calc($SPACING);
     }
 
