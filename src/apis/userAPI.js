@@ -9,6 +9,7 @@ const UserAPI = {
             method: "PATCH",
             data: body,
         })
+        console.log(response.data)
         return response.status;
     },
 }
