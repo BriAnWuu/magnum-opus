@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { UserAPI } from "../../apis/userAPI";
 import "./FollowButton.scss";
 
 function FollowButton({ auctionId }) {
