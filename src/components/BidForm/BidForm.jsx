@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import MaskedInput from "react-text-mask";
+import { createNumberMask } from "text-mask-addons";
 import { BidAPI } from "../../apis/bidAPI";
 import { UserAPI } from "../../apis/userAPI";
 import { formatPrice } from "../../utils/utils";
@@ -43,7 +45,10 @@ function BidForm({ auctionId, askPrice, currentPrice }) {
     }
 
     const bidChangeHandler = (event) => {
-        setBidPrice(+event.target.value || "")
+        const rawValue = event.target.value
+            .replace(/[^0-9.]/g, '') // Remove everything except numbers and decimals
+            .replace(/^0+(?=\d)/, ''); // Prevent leading zeroes
+        setBidPrice(rawValue || "");
     }
 
     const preventChangeOnWheel = (event) => {
@@ -96,14 +101,24 @@ function BidForm({ auctionId, askPrice, currentPrice }) {
         });
     }
 
+    const currencyMask = createNumberMask({
+        prefix: '$', // Prefix for currency
+        suffix: '', // Suffix, if needed (e.g., " USD")
+        includeThousandsSeparator: true, // Add commas as thousands separators
+        thousandsSeparatorSymbol: ',', // Symbol for the separator
+        allowDecimal: false, // Allow decimal places
+        allowNegative: false, // Disallow negative numbers
+        allowLeadingZeroes: false, // Disallow leading zeroes
+    });
+
     return (
         <form onSubmit={submitHandler} className="lot__form">
             <label className="lot__form-label" htmlFor="inputBid">Place a Bid</label>
-            <input
+            <MaskedInput
                 className={`lot__form-input ${borderRed ? "lot__form-input--error":""}`}
-                type="number" 
+                mask={currencyMask}
                 id="inputBid" 
-                placeholder={`ask price $${askPrice}`} 
+                placeholder={`ask price ${formatPrice(askPrice)}`} 
                 onWheel={preventChangeOnWheel}
                 onChange={bidChangeHandler}
                 value={bidPirce}
