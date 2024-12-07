@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { formatTime } from "../../utils/utils";
 import "./Countdown.scss";
 
-function Countdown({ open_at, close_at }) {
+function Countdown({ open_at, close_at, className }) {
     const [countdownStart, setCountdownStart] = useState(true);
     const [timeRemaining, setTimeRemaining] = useState(0);
 
@@ -36,16 +36,16 @@ function Countdown({ open_at, close_at }) {
 
         return (
             <>
-                <div className="countdown-value">
+                <div className={ className }>
                     {days.toString().padStart(2, "0")} <span>days</span>
                 </div>
-                <div className="countdown-value">
+                <div className={ className }>
                     {hours.toString().padStart(2, "0")} <span> hours</span>
                 </div>
-                <div className="countdown-value">
+                <div className={ className }>
                     {minutes.toString().padStart(2, "0")} <span>minutes</span>
                 </div>
-                <div className="countdown-value">
+                <div className={ className }>
                     {seconds.toString().padStart(2, "0")} <span>seconds</span>
                 </div>
             </>
@@ -57,7 +57,7 @@ function Countdown({ open_at, close_at }) {
         <div className="countdown-display">
             { countdownStart ?
                 displayCountdown(timeRemaining) :
-                <div className="countdown-value">This lot has closed</div>
+                <div className={ className }>This lot has closed</div>
             }
         </div>
     )

@@ -4,24 +4,61 @@
 
 
 .lot {
-
     &__form {
         width: 100%;
+        background-color: $COLOR-PRIMARY-TEXT;
+        border-radius: 3px;
         display: flex;
         flex-direction: column;
         gap: calc($SPACING);
+        padding: calc($SPACING * 3);
+    }
+
+    &__form-label {
+        @include font-sub-heading-bold;
+        color: $COLOR-PRIMARY-BACKGROUND;
+    }
+
+    &__form-input {
+        min-height: 2.5rem;
+        background-color: $COLOR-SECONDARY-BACKGROUND;
+        padding: calc($SPACING) calc($SPACING * 2);
+        border-radius: 3px;
+        border: 2px solid $COLOR-SECONDARY-BACKGROUND;
+        @include font-body($COLOR-PRIMARY-TEXT);
+
+        &:focus {
+            outline: none;
+            border: 2px solid $COLOR-WHITE;
+        }
+
+        &--error {
+            outline: none;
+            border: 2px solid $COLOR-ERROR;
+        }
     }
 
     &__increment-cta-container {
         display: flex;
-        gap: calc($SPACING);
+        gap: calc($SPACING * 2);
+        margin-block: calc($SPACING);
     }
 
-    &__form-input {
-        
-        &--error {
-            border: 2px solid $COLOR-ERROR;
-            border-radius: 3px;
+    &__cta {
+        padding: calc($SPACING) calc($SPACING);
+        border: 2px solid $COLOR-SECONDARY-BACKGROUND;
+        border-radius: 3px;
+        @include font-body($COLOR-SECONDARY-BACKGROUND);
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $COLOR-SECONDARY-BACKGROUND;
+            color: $COLOR-PRIMARY-TEXT;
+        }
+
+        &--submit {
+            border-radius: 9999px;
         }
     }
 }

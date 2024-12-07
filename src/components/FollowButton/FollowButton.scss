@@ -4,12 +4,19 @@
 
 
 .lot__follow-button {
-    min-width: 5rem;
-    max-width: 10rem;
+    min-width: 10rem;
+    max-width: 16rem;
     align-self: flex-end;
-    border: 2px solid white;
-    border-radius: 20px;
+    border: 2px solid $COLOR-PRIMARY-TEXT;
+    border-radius: 9999px;
     text-align: center;
     cursor: pointer;
+    @include font-body($COLOR-PRIMARY-TEXT);
     padding: calc($SPACING) calc($SPACING * 2);
+    margin-top: calc($SPACING * 2);
+
+    &:hover {
+        background-color: $COLOR-PRIMARY-TEXT;
+        color: $COLOR-SECONDARY-BACKGROUND;
+    }
 }

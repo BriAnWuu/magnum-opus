@@ -30,9 +30,10 @@ function Gallery({ galleryArtworks }) {
                 <div className="gallery__title-inner-container">
                     <h2 className="gallery__title">{ galleryArtworks[imageIndex]?.title }</h2>
                     <p className="gallery__year">
+                        { convertBC(galleryArtworks[imageIndex]?.date_start) }
                         { galleryArtworks[imageIndex]?.date_start === galleryArtworks[imageIndex]?.date_end ?
-                            convertBC(galleryArtworks[imageIndex]?.date_end) :
-                            `${ convertBC(galleryArtworks[imageIndex]?.date_start) } ~ ${ convertBC(galleryArtworks[imageIndex]?.date_end) }`
+                            "" :
+                            ` - ${ convertBC(galleryArtworks[imageIndex]?.date_end) }`
                         }
                     </p>
                     <p className="gallery__artist">{ galleryArtworks[imageIndex]?.artist_display }</p>
@@ -68,6 +69,7 @@ function Gallery({ galleryArtworks }) {
                     <Countdown
                         open_at={galleryArtworks[imageIndex]?.open_at}
                         close_at={galleryArtworks[imageIndex]?.close_at}
+                        className={ "countdown-value--home" }
                     />
                     <p className="gallery__bid-price">
                         { galleryArtworks[imageIndex]?.ask_price && 

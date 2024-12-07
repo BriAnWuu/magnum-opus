@@ -1,3 +1,42 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
+
+
+.lot {
+    &__main-info {
+        width: 100%;
+        background-color: $COLOR-PRIMARY-TEXT;
+        border-radius: 3px;
+        padding: calc($SPACING * 3)
+    }
+
+    &__lot-number {
+        @include font-body($COLOR-PRIMARY-BACKGROUND);
+        margin-bottom: calc($SPACING * 2)
+    }
+
+    &__artist-name {
+        @include font-sub-heading-bold;
+        color: $COLOR-PRIMARY-BACKGROUND;
+        margin-bottom: calc($SPACING)
+    }
+
+    &__artwork-title {
+        @include font-sub-heading;
+        color: $COLOR-PRIMARY-BACKGROUND;
+        margin-bottom: calc($SPACING * 3);
+
+        span {
+            @include font-sub-heading-italic;
+            color: $COLOR-PRIMARY-BACKGROUND;
+        }
+    }
+
+    &__medium, &__dimension {
+        @include font-small-body($COLOR-PRIMARY-BACKGROUND);
+    }
+    &__medium {
+        margin-bottom: calc($SPACING);
+    }
+}

@@ -1,4 +1,7 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import MaskedInput from "react-text-mask";
+import { createNumberMask } from "text-mask-addons";
 import { BidAPI } from "../../apis/bidAPI";
 import { UserAPI } from "../../apis/userAPI";
 import { formatPrice } from "../../utils/utils";
@@ -37,13 +40,15 @@ function BidForm({ auctionId, askPrice, currentPrice }) {
         }
     }, [currentPrice]);
 
-
     const bidIncrementHandler = (price) => {
         setBidPrice(prev => (+prev + price))
     }
 
     const bidChangeHandler = (event) => {
-        setBidPrice(+event.target.value || "")
+        const rawValue = event.target.value
+            .replace(/[^0-9.]/g, '') // Remove everything except numbers and decimals
+            .replace(/^0+(?=\d)/, ''); // Prevent leading zeroes
+        setBidPrice(rawValue || "");
     }
 
     const preventChangeOnWheel = (event) => {
@@ -96,43 +101,81 @@ function BidForm({ auctionId, askPrice, currentPrice }) {
         });
     }
 
+    const currencyMask = createNumberMask({
+        prefix: '$', // Prefix for currency
+        suffix: '', // Suffix, if needed (e.g., " USD")
+        includeThousandsSeparator: true, // Add commas as thousands separators
+        thousandsSeparatorSymbol: ',', // Symbol for the separator
+        allowDecimal: false, // Allow decimal places
+        allowNegative: false, // Disallow negative numbers
+        allowLeadingZeroes: false, // Disallow leading zeroes
+    });
+
+    const ctaVariants = {
+        initial: { y: 0, scale: 1 },
+        jump: { y: -5 },
+        shrink: { scale: 0.9 },
+    }
+
     return (
         <form onSubmit={submitHandler} className="lot__form">
             <label className="lot__form-label" htmlFor="inputBid">Place a Bid</label>
-            <input
+            <MaskedInput
                 className={`lot__form-input ${borderRed ? "lot__form-input--error":""}`}
-                type="number" 
+                mask={currencyMask}
                 id="inputBid" 
-                placeholder={`ask price $${askPrice}`} 
+                placeholder={`ask price ${formatPrice(askPrice)}`} 
                 onWheel={preventChangeOnWheel}
                 onChange={bidChangeHandler}
                 value={bidPirce}
                 onBlur={() => setBorderRed(false)}
+                autoComplete="off"
             />
             <div className="lot__increment-cta-container">
-                <button
+                <motion.button
                     className="lot__cta"
                     type="button"
                     onClick={() => bidIncrementHandler(ctaLabel.button1)}
+                    variants={ctaVariants}
+                    initial="initial"
+                    whileHover="jump"
+                    exit="initial"
                 >
                     {`+ ${formatPrice(ctaLabel.button1)}`}
-                </button>
-                <button
+                </motion.button>
+                <motion.button
                     className="lot__cta"
                     type="button"
                     onClick={() => bidIncrementHandler(ctaLabel.button2)}
+                    variants={ctaVariants}
+                    initial="initial"
+                    whileHover="jump"
+                    exit="initial"
                 >
                     {`+ ${formatPrice(ctaLabel.button2)}`}
-                </button>
-                <button
+                </motion.button>
+                <motion.button
                     className="lot__cta"
                     type="button"
                     onClick={() => bidIncrementHandler(ctaLabel.button3)}
+                    variants={ctaVariants}
+                    initial="initial"
+                    whileHover="jump"
+                    exit="initial"
                 >
                     {`+ ${formatPrice(ctaLabel.button3)}`}
-                </button>
+                </motion.button>
             </div>
-            <button className="lot__cta lot__cta-submit" type="submit">Bid</button>
+            <motion.button 
+                className="lot__cta lot__cta--submit" 
+                type="submit"
+                variants={ctaVariants}
+                initial="initial"
+                whileHover="jump"
+                exit="initial"
+            >
+                Bid
+            </motion.button>
         </form>
     )
 };
