@@ -8,6 +8,10 @@
     gap: calc($SPACING);
 }
 
-.countdown-value {
+.countdown-value--home {
     @include font-small-body($COLOR-SECONDARY-TEXT);
+}
+
+.countdown-value--bid {
+    @include font-body($COLOR-SECONDARY-TEXT);
 }

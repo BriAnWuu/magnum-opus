@@ -69,6 +69,7 @@ function Gallery({ galleryArtworks }) {
                     <Countdown
                         open_at={galleryArtworks[imageIndex]?.open_at}
                         close_at={galleryArtworks[imageIndex]?.close_at}
+                        className={ "countdown-value--home" }
                     />
                     <p className="gallery__bid-price">
                         { galleryArtworks[imageIndex]?.ask_price && 

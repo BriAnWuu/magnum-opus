@@ -10,7 +10,7 @@ $TABLE-BORDER: 2px solid $COLOR-GRID-BORDER;
         display: flex;
         flex-direction: column;
         background-color: $COLOR-SECONDARY-BACKGROUND;
-        border-radius: 6px;
+        border-radius: 3px;
         padding: calc($SPACING * 3);
         gap: calc($SPACING * 2);
     }
@@ -30,13 +30,13 @@ $TABLE-BORDER: 2px solid $COLOR-GRID-BORDER;
     }
 
     &__board-header {
-        @include font-sub-heading;
+        @include font-body($COLOR-SECONDARY-TEXT);
         padding: calc($SPACING);
     }
 
     &__board-body {
         @include font-fancy;
-        padding: calc($SPACING);
+        padding: calc($SPACING * 2);
     }
 
     &__bid-score-board {
@@ -62,6 +62,15 @@ $TABLE-BORDER: 2px solid $COLOR-GRID-BORDER;
 
         div:last-child {
             border-bottom: none;
+        }
+    }
+
+    &__countdown-timer {
+        margin-top: calc($SPACING);
+        display: flex;
+
+        & > p {
+            @include font-body($COLOR-SECONDARY-TEXT);
         }
     }
 }

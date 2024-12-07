@@ -1,4 +1,4 @@
-import { formatPrice } from "../../utils/utils";
+import { formatPrice, formatTimeHumanReadable } from "../../utils/utils";
 import Countdown from "../Countdown/Countdown";
 import "./BidInfo.scss";
 
@@ -28,18 +28,25 @@ function BidInfo({
             }
             <div className="lot__bid-score-board">
                 <div className="lot__bid-score-board--row">
-                    <span className="lot__bid-score-board--time lot__board-header">time</span>
-                    <span className="lot__board-header">bid</span>
+                    <span className="lot__bid-score-board--time lot__board-header">Time</span>
+                    <span className="lot__board-header">Bid</span>
                 </div>
                 { bidList?.map((bid, idx) => (
                     <div key={idx} className="lot__bid-score-board--row">   
-                        <div className="lot__bid-score-board--time lot__board-body">{bid.created_at}</div>
+                        <div className="lot__bid-score-board--time lot__board-body">
+                            {formatTimeHumanReadable(new Date(bid.created_at).getTime())}
+                        </div>
                         <div className="lot__board-body">{formatPrice(bid.amount)}</div>
                     </div> 
                 ))}
             </div>
             <div className="lot__countdown-timer">
-                <Countdown open_at={open_at} close_at={close_at} />
+                <p>Ends in:&nbsp;</p>
+                <Countdown 
+                    open_at={open_at} 
+                    close_at={close_at}
+                    className={ "countdown-value--bid" } 
+                />
             </div>
         </section>
     )
