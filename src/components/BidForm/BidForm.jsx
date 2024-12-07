@@ -7,7 +7,7 @@ import { UserAPI } from "../../apis/userAPI";
 import { formatPrice } from "../../utils/utils";
 import "./BidForm.scss";
 
-function BidForm({ auctionId, askPrice, currentPrice }) {
+function BidForm({ auctionId, askPrice, currentPrice, setFetchBid }) {
     const [bidPirce, setBidPrice] = useState(currentPrice || askPrice);
     const [ctaLabel, setCtaLabel] = useState({});
     const [borderRed, setBorderRed] = useState(false);
@@ -38,10 +38,13 @@ function BidForm({ auctionId, askPrice, currentPrice }) {
                 button3: 100_000,
             });
         }
+
+        setBidPrice(currentPrice);
     }, [currentPrice]);
 
     const bidIncrementHandler = (price) => {
         setBidPrice(prev => (+prev + price))
+        setBorderRed(false);
     }
 
     const bidChangeHandler = (event) => {
@@ -82,16 +85,8 @@ function BidForm({ auctionId, askPrice, currentPrice }) {
         // api post bid
         await BidAPI.postBid({
             auction_id: auctionId,
-            user_id: user_id,
+            user_id: +user_id,
             amount: bidPirce,
-        }).then((statusCode) => {
-            console.log(statusCode);
-        }).catch((error) => {
-            console.error(error)
-        });
-
-        // api update user
-        await UserAPI.update(user_id, {
             buyer: true,
             watching: auctionId,
         }).then((statusCode) => {
@@ -99,6 +94,8 @@ function BidForm({ auctionId, askPrice, currentPrice }) {
         }).catch((error) => {
             console.error(error)
         });
+
+        setFetchBid(prev => !prev);
     }
 
     const currencyMask = createNumberMask({
