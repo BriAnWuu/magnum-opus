@@ -41,6 +41,25 @@
     &__increment-cta-container {
         display: flex;
         gap: calc($SPACING);
+        margin-block: calc($SPACING);
+    }
+
+    &__cta {
+        padding: calc($SPACING) calc($SPACING);
+        border: 2px solid $COLOR-SECONDARY-BACKGROUND;
+        border-radius: 3px;
+        @include font-body($COLOR-SECONDARY-BACKGROUND);
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $COLOR-SECONDARY-BACKGROUND;
+            color: $COLOR-PRIMARY-TEXT;
+        }
+
+        &--submit {
+            border-radius: 9999px;
+        }
     }
 }
 
