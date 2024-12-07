@@ -34,9 +34,9 @@ function BidInfo({
                 { bidList?.map((bid, idx) => (
                     <div key={idx} className="lot__bid-score-board--row">   
                         <div className="lot__bid-score-board--time lot__board-body">
-                            {formatTimeHumanReadable(new Date(bid.created_at).getTime())}
+                            { formatTimeHumanReadable(new Date(bid.created_at).getTime()) }
                         </div>
-                        <div className="lot__board-body">{formatPrice(bid.amount)}</div>
+                        <div className="lot__board-body">{ formatPrice(bid.amount) }</div>
                     </div> 
                 ))}
             </div>

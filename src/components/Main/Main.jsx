@@ -8,7 +8,6 @@ import "./Main.scss";
 
 function Main(prop) {
 
-
     const [galleryArtworks, setGalleryArtworks] = useState([]);
     const [discoverArtworks, setDiscoverArtworks] = useState([]);
 

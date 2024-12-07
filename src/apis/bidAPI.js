@@ -7,7 +7,8 @@ const BidAPI = {
             url: `/bid`,
             method: "POST",
             data: body,
-        })
+        });
+        
         return response.status;
     },
 }

@@ -12,8 +12,9 @@ import "./BidPage.scss";
 function BidPage() {
     const { artworkId } = useParams();
     const [auctionDetail, setAuctionDetail] = useState({});
-
-    const [currentPrice, setCurrentPrice] = useState(10_000)
+    const [bidList, setBidList] = useState([]);
+    const [currentPrice, setCurrentPrice] = useState(0);
+    const [fetchBid, setFetchBid] = useState(false);
 
     // api get auction by id
     useEffect(() => {
@@ -26,20 +27,24 @@ function BidPage() {
         });
     }, []);
 
-    const [bidList, setBidList] = useState([]);
-    
+    // api get bid data
     useEffect(() => {
-        {
+        if (auctionDetail) {
             AuctionAPI.getBids(auctionDetail.id)
             .then((bidData) => {
-                setBidList(bidData);       
+                setBidList(bidData);
+
+                if (bidData.length > 0) {
+                    setCurrentPrice(bidData[bidData.length - 1].amount)
+                } else {
+                    setCurrentPrice(auctionDetail.askPrice)
+                }
             })
             .catch((error) => {
                 console.error(error)
             });
         }
-    }, [auctionDetail]);
-
+    }, [auctionDetail, fetchBid]);
     
     return (
         <div className="lot">
@@ -76,6 +81,7 @@ function BidPage() {
                     auctionId={ auctionDetail?.id }
                     currentPrice={ currentPrice }
                     askPrice={ auctionDetail?.ask_price }
+                    setFetchBid={ setFetchBid }
                 />
                 <FollowButton auctionId={ auctionDetail?.id } />
             </div>

@@ -24,7 +24,7 @@ function AboutTheWork({ description, provenance }) {
             </div>
             { currentTab === "about" &&
                 <div className="lot__detail-text">
-                    <p>{ description ? parse(description) : "Description on this work not available at this time" }</p>
+                    { description ? parse(description) : <p>Description on this work not available at this time</p> }
                 </div>
             }
             { currentTab === "provenance" &&
