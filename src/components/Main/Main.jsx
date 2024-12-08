@@ -14,8 +14,8 @@ function Main(prop) {
     useEffect(() => {
         ArtworksAPI.getAll("main")
         .then((artworks) => {
-            setGalleryArtworks(JSON.parse(JSON.stringify(artworks.slice(0, 7))))
-            setDiscoverArtworks(JSON.parse(JSON.stringify(artworks.slice(7))))
+            setGalleryArtworks(artworks.slice(0, 7))
+            setDiscoverArtworks(artworks.slice(7))
         })
         .catch((error) => {
             console.error(error)

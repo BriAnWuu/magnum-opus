@@ -54,8 +54,24 @@ const formatTimeHumanReadable = (timestamp) => {
     }
 }
 
+const divideArtworks = (arr, numOfGroups = 7) => {
+    const groups = [];
+    const groupSize = Math.floor(arr.length / numOfGroups);
+
+    let arrStart = 0;
+    for (let i = 0; i < numOfGroups; i++) {
+        i === numOfGroups - 1 ?
+            groups.push(arr.slice(arrStart)) :
+            groups.push(arr.slice(arrStart, arrStart + groupSize));
+        arrStart += groupSize;
+    }
+
+    return groups;
+}
+
 export {
     convertBC,
+    divideArtworks,
     formatPrice,
     formatTime,
     formatTimeHumanReadable,
