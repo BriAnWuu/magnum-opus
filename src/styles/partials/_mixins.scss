@@ -5,6 +5,13 @@
 }
 
 
+@mixin font-title {
+    font-family: "Fraunces", Tahoma, Verdana, sans-serif;
+    font-size: 4rem;
+    line-height: 4.5rem;
+    font-weight: 600;
+    color: $COLOR-PRIMARY-TEXT;
+}
 
 @mixin font-sub-title{
     font-family: "Fraunces Italic", Tahoma, Verdana, sans-serif;
@@ -50,6 +57,14 @@
     font-family: "Libre Caslon Display", Courier, monospace;
     font-size: 1.25rem;
     line-height: 1.5rem;
+    color: $color;
+}
+
+@mixin font-body-alter($color) {
+    font-family: "Fraunces", Tahoma, Verdana, sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-weight: 400;
     color: $color;
 }
 
