@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import MaskedInput from "react-text-mask";
 import { createNumberMask } from "text-mask-addons";
 import { BidAPI } from "../../apis/bidAPI";
-import { UserAPI } from "../../apis/userAPI";
 import { formatPrice } from "../../utils/utils";
 import "./BidForm.scss";
 

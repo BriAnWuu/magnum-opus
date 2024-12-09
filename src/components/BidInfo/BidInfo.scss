@@ -27,7 +27,7 @@ $TABLE-BORDER: 2px solid $COLOR-GRID-BORDER;
     }
 
     &__watchers {
-        @include font-small-body($COLOR-SECONDARY-TEXT);
+        @include font-small-body($COLOR-PRIMARY-TEXT);
     }
 
     &__board-header {

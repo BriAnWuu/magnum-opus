@@ -20,7 +20,7 @@ function BidPage() {
     useEffect(() => {
         AuctionAPI.get(artworkId)
         .then((auctionData) => {
-            setAuctionDetail(auctionData);        
+            setAuctionDetail(auctionData);       
         })
         .catch((error) => {
             console.error(error)
@@ -37,7 +37,7 @@ function BidPage() {
                 if (bidData.length > 0) {
                     setCurrentPrice(bidData[bidData.length - 1].amount)
                 } else {
-                    setCurrentPrice(auctionDetail.askPrice)
+                    setCurrentPrice(auctionDetail.ask_price)
                 }
             })
             .catch((error) => {

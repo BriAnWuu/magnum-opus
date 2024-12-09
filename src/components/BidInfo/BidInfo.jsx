@@ -23,7 +23,7 @@ function BidInfo({
             </div> 
             { watchers > 0 && 
                 <p className="lot__watchers">
-                    {`${watchers} watcher${ watchers === 1 ? "":"s" }`}
+                    {`${watchers} follower${ watchers === 1 ? "":"s" }`}
                 </p>
             }
             <div className="lot__bid-score-board">
