@@ -25,7 +25,7 @@ function FeatureGallery({ index, artworks }) {
                                     } 
                                 }}
                                 exit={{ y: 0 }}
-                                onClick={() => navigate(`/artwork/${artwork.id}`)}
+                                onClick={() => navigate(`/bid/${artwork.id}`)}
                             />
                             <h3 className="artwork__item-artist">
                                 { artwork.artist_title || "Unknown Artist" }
