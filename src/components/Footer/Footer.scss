@@ -33,6 +33,8 @@
     &__links-container {
         display: flex;
         flex-direction: column;
+        gap: calc($SPACING / 2);
+        margin-top: $SPACING;
         
         & > * {
             @include font-small-body($COLOR-SECONDARY-TEXT);
