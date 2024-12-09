@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import MaskedInput from "react-text-mask";
 import { createNumberMask } from "text-mask-addons";
 import { BidAPI } from "../../apis/bidAPI";
-import { UserAPI } from "../../apis/userAPI";
 import { formatPrice } from "../../utils/utils";
 import "./BidForm.scss";
 
@@ -44,10 +43,10 @@ function BidForm({ auctionId, askPrice, currentPrice, setFetchBid }) {
 
     const bidIncrementHandler = (price) => {
         setBidPrice(prev => (+prev + price))
-        setBorderRed(false);
     }
 
     const bidChangeHandler = (event) => {
+        setBorderRed(false);
         const rawValue = event.target.value
             .replace(/[^0-9.]/g, '') // Remove everything except numbers and decimals
             .replace(/^0+(?=\d)/, ''); // Prevent leading zeroes
@@ -125,7 +124,6 @@ function BidForm({ auctionId, askPrice, currentPrice, setFetchBid }) {
                 onWheel={preventChangeOnWheel}
                 onChange={bidChangeHandler}
                 value={bidPirce}
-                onBlur={() => setBorderRed(false)}
                 autoComplete="off"
             />
             <div className="lot__increment-cta-container">

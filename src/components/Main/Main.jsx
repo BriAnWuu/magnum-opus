@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { ArtworksAPI } from "../../apis/artworksAPI";
 import Discover from "../Discover/Discover";
 import Gallery from "../Gallery/Gallery";
-import Test from "../Test/Test";
 import "./Main.scss";
 
 
@@ -26,7 +25,6 @@ function Main(prop) {
         <>
             <Gallery galleryArtworks={galleryArtworks} />
             <Discover discoverArtworks={discoverArtworks} />
-            {/* <Test /> */}
         </>
     )
 };

@@ -1,10 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ScrollerItem.scss";
 
 function ScrollerItem({ artwork }) {
     const [showOverlay, setShowOverlay] = useState(false);
-    
+    const navigate = useNavigate();
+
     return (
         <motion.li 
             className="discover__scroller-item"
@@ -26,7 +28,11 @@ function ScrollerItem({ artwork }) {
                             animate={{ y: 0 }}
                             exit={{ y: 10 }}
                         >
-                            <span>Explore</span>
+                            <span
+                                onClick={() => navigate(`/bid/${artwork.id}`)}
+                            >
+                                Explore
+                            </span>
                         </motion.h3>
                     </motion.div>
                 )}
