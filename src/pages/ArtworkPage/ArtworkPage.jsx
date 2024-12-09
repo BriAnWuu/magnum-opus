@@ -19,7 +19,7 @@ function ArtworkPage(prop) {
         });
     }, []);
 
-    if (artworkGroups) console.log(artworkGroups)
+
     return (
         <main className="artwork">
             <h1>Featured Galleries</h1>

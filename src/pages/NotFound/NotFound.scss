@@ -3,4 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 
-@include font-title;
+.page-not-found {
+    @include font-sub-title;
+    padding: calc($SPACING * 3);
+}

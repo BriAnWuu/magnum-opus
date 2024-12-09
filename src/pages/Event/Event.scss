@@ -2,9 +2,8 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
-.hero {
-    width: 100%;
-    height: 25vh;
-    background-color: $COLOR-SECONDARY-BACKGROUND;
-    transform-origin: bottom;
+
+.inspire {
+    @include font-sub-title;
+    padding: calc($SPACING * 3);
 }

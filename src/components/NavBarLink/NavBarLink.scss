@@ -1,0 +1,20 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.nav__link {
+    text-decoration: none;
+    @include font-sub-heading;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+}
+
+.pending {
+    color: $COLOR-PRIMARY-TEXT;
+}
+
+.active {
+    color: $COLOR-PRIMARY-TEXT;
+    border-bottom: 1px solid $COLOR-PRIMARY-TEXT;
+}
