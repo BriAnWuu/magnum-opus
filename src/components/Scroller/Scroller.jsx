@@ -8,13 +8,16 @@ import "./Scroller.scss";
 
 function Scroller({ discoverArtworks }) {
     
+    // carousel scrolling speed
     const FAST_DURATION = 30;
     const SLOW_DURATION = 60;
     const [duration, setDuration] = useState(FAST_DURATION);
 
+    // keep track on scroll progress
     const [scrollerRef, { width }] = useMeasure();
     const xTranslation = useMotionValue(0);
 
+    // prevent re-render when scroll not finish 
     const [finishLoop, setFinishLoop] = useState(false);
     const [rerender, setRerender] = useState(false);
 
