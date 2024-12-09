@@ -3,7 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 
-.page-not-found {
+.inspire {
     @include font-sub-title;
     padding: calc($SPACING * 3);
 }

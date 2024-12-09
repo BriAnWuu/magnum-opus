@@ -5,5 +5,43 @@
 
 .nav {
     width: 100%;
-    height: 10vh;
+    padding: calc($SPACING * 3);
+    display: flex;
+    justify-content: space-between;
+
+    &__wordmark {
+        justify-self: flex-start;
+        @include font-fancy;
+        font-size: 2.5rem;
+        line-height: 3rem;
+        cursor: pointer;
+    }
+
+    &__nav-links {
+        align-self: flex-end;
+        display: flex;
+        gap: calc($SPACING * 4);
+    }
+
+    &__more-action {
+        display: flex;
+        align-self: flex-end;
+    }
+
+    &__search {
+        @include font-sub-heading;
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+        border: none;
+        background-color: transparent;
+        display: flex;
+        cursor: pointer;
+        
+        & > svg {
+            width: 24px;
+            aspect-ratio: 1/1;
+            fill: $COLOR-SECONDARY-TEXT;
+            margin-left: calc($SPACING * 2);
+        }
+    }
 }
