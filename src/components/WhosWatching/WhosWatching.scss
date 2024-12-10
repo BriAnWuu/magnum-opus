@@ -4,7 +4,13 @@
 
 .who {
     width: 100%;
+    height: 100%;
     padding: 5%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.85);
+    overflow-y: auto;
 
     &__title {
         @include font-sub-heading-bold;
@@ -30,6 +36,8 @@
         width: 100%;
         border-radius: 50%;
         margin-bottom: calc($SPACING);
+        cursor: pointer;
+        background-color: $COLOR-WHITE-ALTER;
     }
 
     &__name {

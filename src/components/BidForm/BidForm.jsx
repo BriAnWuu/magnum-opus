@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MaskedInput from "react-text-mask";
 import { createNumberMask } from "text-mask-addons";
 import { BidAPI } from "../../apis/bidAPI";
@@ -7,6 +8,8 @@ import { formatPrice } from "../../utils/utils";
 import "./BidForm.scss";
 
 function BidForm({ auctionId, askPrice, currentPrice, setFetchBid }) {
+    const navigate = useNavigate();
+    
     const [bidPirce, setBidPrice] = useState(currentPrice || askPrice);
     const [ctaLabel, setCtaLabel] = useState({});
     const [borderRed, setBorderRed] = useState(false);
@@ -67,7 +70,6 @@ function BidForm({ auctionId, askPrice, currentPrice, setFetchBid }) {
     }
     
     const submitHandler = async (event) => {
-        sessionStorage.setItem("user_id", 2);
         
         event.preventDefault();
         
@@ -80,6 +82,10 @@ function BidForm({ auctionId, askPrice, currentPrice, setFetchBid }) {
         }
 
         const user_id = sessionStorage.getItem("user_id");
+        if (!user_id) {
+            alert("Looks Like You Don't Have an Account with Us\nPlease Choose or Create a Profile at Our Home Page...");
+            navigate("/");
+        }
 
         // api post bid
         await BidAPI.postBid({

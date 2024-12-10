@@ -40,12 +40,19 @@ function WhosWatching({ setIsProfileSelected }) {
                     <article 
                         key={user.id} 
                         className="who__card"
-                        onClick={() => handleProfileSelection(user)}
                     >
-                        <img 
+                        <motion.img 
                             className="who__avatar"
                             src={user.avatar} 
                             alt={`avatar of ${user.name}`}
+                            onClick={() => handleProfileSelection(user)}
+                            initial={{ scale: 1 }}
+                            whileHover={{ 
+                                scale: 1.1,
+                                transition: {
+                                    ease: "easeInOut"
+                                }
+                            }}
                         />
                         <p className="who__name">{`${user.name} ( user ${user.id} )`}</p>
                     </article>

@@ -5,4 +5,11 @@
 .home {
     width: 100%;
     min-height: 80vh;
+    position: relative;
+
+    &__content {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
 }

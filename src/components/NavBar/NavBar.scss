@@ -8,6 +8,7 @@
     padding: calc($SPACING * 3);
     display: flex;
     justify-content: space-between;
+    margin-bottom: calc($SPACING * 6);
 
     &__wordmark {
         justify-self: flex-start;

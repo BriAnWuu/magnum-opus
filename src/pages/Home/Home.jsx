@@ -5,14 +5,22 @@ import WhosWatching from "../../components/WhosWatching/WhosWatching";
 import "./Home.scss";
 
 function Home() {
-    const [isProfileSelected, setIsProfileSelected] = useState(false)
+    const [isProfileSelected, setIsProfileSelected] = useState(true)
     
     useEffect(() => {
         const user_id = sessionStorage.getItem("user_id");
         if (user_id) {
             setIsProfileSelected(true);
+            document.body.style.overflow = "auto";
+        } else {
+            setIsProfileSelected(false);
+            document.body.style.overflow = "hidden";
         }
-    }, [])
+        return () => {
+            setIsProfileSelected(true);
+            document.body.style.overflow = "auto";
+        }
+    }, [isProfileSelected])
 
 
     return (
@@ -20,8 +28,10 @@ function Home() {
             { !isProfileSelected && 
                 <WhosWatching setIsProfileSelected={setIsProfileSelected} />
             }
-            <Hero />
-            <Main />
+            <div className="home__content">
+                <Hero />
+                <Main />
+            </div>
         </div>
     )
 };
