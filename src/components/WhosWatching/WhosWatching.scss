@@ -14,6 +14,11 @@
 
     &__title {
         @include font-sub-heading-bold;
+        margin-bottom: calc($SPACING * 4);
+
+        & > span {
+            color: $COLOR-PRIMARY-TEXT;
+        }
     }
 
     &__profiles-container {

@@ -34,7 +34,7 @@ function WhosWatching({ setIsProfileSelected }) {
 
     return (
         <div className="who">
-            <h1 className="who__title">Who's Watching?</h1>
+            <h1 className="who__title">We're not Netflix, but still... <span>Who's Watching?</span></h1>
             <div className="who__profiles-container">
                 { profiles.map((user) => 
                     <article 
