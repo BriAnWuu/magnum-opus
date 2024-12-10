@@ -11,7 +11,7 @@ function FollowButton({ auctionId }) {
             navigate("/");
         }
 
-        await UserAPI.update(user_id, {
+        await UserAPI.follow(user_id, {
             watching: auctionId,
         }).then((statusCode) => {
             console.log(statusCode);

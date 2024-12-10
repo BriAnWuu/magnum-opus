@@ -3,7 +3,7 @@ import { api } from "./configs/axiosConfigs";
 
 
 const UserAPI = {
-    update: async (id, body) => {
+    follow: async (id, body) => {
         const response = await api.request({
             url: `/user/${id}`,
             method: "PATCH",
