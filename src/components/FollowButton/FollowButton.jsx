@@ -4,8 +4,12 @@ import "./FollowButton.scss";
 
 function FollowButton({ auctionId }) {
     const followHandler = async () => {
-        sessionStorage.setItem("user_id", 3);
+
         const user_id = sessionStorage.getItem("user_id");
+        if (!user_id) {
+            alert("Looks Like You Don't Have an Account with Us\nPlease Choose or Create a Profile at Our Home Page...");
+            navigate("/");
+        }
 
         await UserAPI.update(user_id, {
             watching: auctionId,

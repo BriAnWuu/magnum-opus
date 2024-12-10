@@ -100,4 +100,11 @@
             white-space: nowrap;
         }
     }
+
+    &__place-bid {
+        cursor: pointer;
+        &:hover {
+            color: $COLOR-PRIMARY-TEXT;
+        }
+    }
 }

@@ -1,5 +1,6 @@
 import parse from "html-react-parser";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { convertBC, formatPrice, getCurrentPrice } from "../../utils/utils";
 import Countdown from "../Countdown/Countdown";
 import Dots from "../Dots/Dots";
@@ -8,9 +9,10 @@ import GalleryNav from "../GalleryNav/GalleryNav";
 import "./Gallery.scss";
 
 function Gallery({ galleryArtworks }) {
+    const navigate = useNavigate();
+
     const [imageIndex, setImageIndex] = useState(0);
     
-
     if (!galleryArtworks) {
         return (
             <p>Loading...</p>
@@ -63,7 +65,12 @@ function Gallery({ galleryArtworks }) {
                 <div className="gallery__auction">
                     <p className="gallery__countdown">Ending in</p>
                     <p className="gallery__bid-price">Price</p>
-                    <p className="gallery__place-bid">Place a bid</p>
+                    <p 
+                        className="gallery__place-bid"
+                        onClick={() => navigate(`/bid/${ galleryArtworks[imageIndex]?.id }`)}
+                    >
+                        Place a bid
+                    </p>
                 </div>
                 <div className="gallery__auction">
                     <Countdown

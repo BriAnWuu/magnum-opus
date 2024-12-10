@@ -10,6 +10,6 @@
 
     h1 {
         @include font-title;
-        padding: calc($SPACING * 10) calc($SPACING * 4);
+        padding: 0 calc($SPACING * 4) calc($SPACING * 4);
     }
 }
