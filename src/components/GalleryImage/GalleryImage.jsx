@@ -10,16 +10,7 @@ function GalleryImage({ imageId, imageAlt }) {
             <motion.img 
                 className="gallery__image" 
                 src={`${import.meta.env.VITE_APP_IMG_BASE_URL}/${imageId}.jpg`}
-                alt={imageAlt} 
-                // ref={imageRef}
-                initial={{
-                    opacity: 0,
-                    scale: 0.3
-                }}
-                animate={{
-                    opacity: 1,
-                    scale: 1
-                }}                    
+                alt={imageAlt}              
             />
 
         </>
