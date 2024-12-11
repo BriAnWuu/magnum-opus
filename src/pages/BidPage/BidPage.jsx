@@ -15,6 +15,7 @@ function BidPage() {
     const [bidList, setBidList] = useState([]);
     const [currentPrice, setCurrentPrice] = useState(0);
     const [fetchBid, setFetchBid] = useState(false);
+    const [fetchAuction, setFetchAuction] = useState(false);
 
     // api get auction by id
     useEffect(() => {
@@ -25,7 +26,7 @@ function BidPage() {
         .catch((error) => {
             console.error(error)
         });
-    }, []);
+    }, [fetchAuction]);
 
     // api get bid data
     useEffect(() => {
@@ -83,7 +84,10 @@ function BidPage() {
                     askPrice={ auctionDetail?.ask_price }
                     setFetchBid={ setFetchBid }
                 />
-                <FollowButton auctionId={ auctionDetail?.id } />
+                <FollowButton 
+                    auctionId={ auctionDetail?.id } 
+                    setFetchAuction={ setFetchAuction }
+                />
             </div>
         </div>
     )

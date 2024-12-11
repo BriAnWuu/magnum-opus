@@ -7,7 +7,12 @@ import { BidAPI } from "../../apis/bidAPI";
 import { formatPrice } from "../../utils/utils";
 import "./BidForm.scss";
 
-function BidForm({ auctionId, askPrice, currentPrice, setFetchBid }) {
+function BidForm({ 
+    auctionId, 
+    askPrice, 
+    currentPrice, 
+    setFetchBid
+}) {
     const navigate = useNavigate();
     
     const [bidPirce, setBidPrice] = useState(currentPrice || askPrice);
@@ -45,7 +50,8 @@ function BidForm({ auctionId, askPrice, currentPrice, setFetchBid }) {
     }, [currentPrice]);
 
     const bidIncrementHandler = (price) => {
-        setBidPrice(prev => (+prev + price))
+        setBidPrice(prev => (+prev + price));
+        setBorderRed(false);
     }
 
     const bidChangeHandler = (event) => {

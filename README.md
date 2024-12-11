@@ -34,19 +34,29 @@ List the functionality that your app will include. These can be written as user 
 - React
 - Express
 - MySQL
+
 - Client libraries:
+    - axios
+    - html-react-parser
+    - framer-motion
     - react
     - react-router
-    - axios
-    - framer-motion
+    - react-text-mask
+    - react-use-measure
+    - sass
 - Server libraries:
-    - knex
+    - cors
+    - dotenv
     - express
+    - knex
+    - mysql2
     - socket.io
 
 ### APIs
 
-[Art Institute of Chicago API](https://api.artic.edu/docs/#introduction)
+- [Art Institute of Chicago API](https://api.artic.edu/docs/#introduction): Artwork data scraping
+- [Faker.js](https://fakerjs.dev/): Mock data generation
+- [RoboHash](https://robohash.org/): Mock user profiles generation
 
 ### Sitemap
 
@@ -140,7 +150,7 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 ## Nice-to-haves
 
-- Speach recognition for bidding
+- Speech recognition for bidding
 
 - Search function
     - Search artwork

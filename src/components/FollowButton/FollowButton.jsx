@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { UserAPI } from "../../apis/userAPI";
 import "./FollowButton.scss";
 
-function FollowButton({ auctionId }) {
+function FollowButton({ auctionId, setFetchAuction }) {
     const followHandler = async () => {
 
         const user_id = sessionStorage.getItem("user_id");
@@ -18,6 +18,8 @@ function FollowButton({ auctionId }) {
         }).catch((error) => {
             console.error(error)
         });
+
+        setFetchAuction(prev => !prev)
     }
 
     return (
