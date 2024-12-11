@@ -1,5 +1,16 @@
 # Magnum Opus
 
+## Pre-requisite
+
+Instructions for the back-end server can be found here: [magnum-opus-api](https://github.com/BriAnWuu/magnum-opus-api)
+
+### Installation
+
+```shell
+git clone https://github.com/BriAnWuu/magnum-opus.git
+```
+
+
 ## Overview
 
 Magnum Opus is your favourite art auction platform for discovering great craftsmanship, creativity, and vision. Magnum Opus connects you with art that inspires and endures. Discover, bid, and own a piece of the extraordinary today.
@@ -25,7 +36,9 @@ Compared to traditional auctions, an art auction platform breaks geographical ba
 
 ### Features
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
+- Artwork Bidding
+- Real-time updates on Artworks
+- 
 
 ## Implementation
 
@@ -66,8 +79,6 @@ List the functionality that your app will include. These can be written as user 
 - Bidding page
 
 ### Mockups
-
-Provide visuals of your app's screens. You can use pictures of hand-drawn sketches, or wireframing tools like Figma.
 
 #### Home page
 #### Artworks page
@@ -170,5 +181,3 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 ---
 
 ## Future Implementations
-Your project will be marked based on what you committed to in the above document. Here, you can list any additional features you may complete after the MVP of your application is built, or if you have extra time before the Capstone due date.
-
