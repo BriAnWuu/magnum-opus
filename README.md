@@ -63,9 +63,9 @@ Compared to traditional auctions, an art auction platform breaks geographical ba
 
 ### Features
 
-- Artwork Bidding
+- Exhibition of Artworks
+- Bidding on Artworks
 - Real-time updates on Artworks
-- 
 
 ## Implementation
 
