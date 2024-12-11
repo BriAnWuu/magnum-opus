@@ -2,15 +2,40 @@
 
 ## Pre-requisite
 
-Instructions for the back-end server can be found here: [magnum-opus-api](https://github.com/BriAnWuu/magnum-opus-api)
+To implement this application, please also set up API server. The repository and instructions for the back-end server can be found here: [magnum-opus-api](https://github.com/BriAnWuu/magnum-opus-api)
 
 ### Installation
 
-Copy the 
+Clone this repository to your local folder:
 
 ```shell
-$ git clone https://github.com/BriAnWuu/magnum-opus.git
+git clone https://github.com/BriAnWuu/magnum-opus.git
 ```
+
+Navigate into your project folder and install dependencies(resource for package manager [npm](https://nodejs.org/en/download/package-manager)):
+
+```sell
+npm install
+```
+
+### Configure Environment
+
+Create a `.env` file to store end point URLs, following the format in `.env.example`:
+
+```
+VITE_APP_API_BASE_URL=http://localhost:8080/api
+VITE_APP_IMG_BASE_URL=http://localhost:8080/images
+```
+
+### Launch the Application
+
+Launch the app, and click on the URL shown in your terminal:
+
+```shell
+npm run dev
+```
+
+Be sure that back end server is also running in another terminal.
 
 
 ## Overview
