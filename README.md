@@ -6,8 +6,10 @@ Instructions for the back-end server can be found here: [magnum-opus-api](https:
 
 ### Installation
 
+Copy the 
+
 ```shell
-git clone https://github.com/BriAnWuu/magnum-opus.git
+$ git clone https://github.com/BriAnWuu/magnum-opus.git
 ```
 
 
