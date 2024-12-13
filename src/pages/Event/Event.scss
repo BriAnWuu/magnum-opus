@@ -1,0 +1,9 @@
+@use "../../styles/partials/variables" as *;
+
+@use "../../styles/partials/mixins" as *;
+
+
+.inspire {
+    @include font-sub-title;
+    padding: calc($SPACING * 3);
+}

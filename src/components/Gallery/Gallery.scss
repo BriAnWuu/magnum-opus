@@ -1,0 +1,110 @@
+@use "../../styles/partials/variables" as *;
+
+@use "../../styles/partials/mixins" as *;
+
+
+.gallery {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    grid-template-rows: 3fr 1fr;
+    padding: calc($SPACING * 2);
+    overflow: hidden;
+
+    &__frame {
+        display: flex;
+        width: 100%;
+        @include aspect-ratio;
+        border: 45px solid;
+        border-image-source: url('../../assets/image/wood-frame.png');
+        border-image-slice: 100;
+        border-image-repeat: round;
+        z-index: 100;
+        overflow: scroll;
+        scrollbar-width: none;
+    }
+
+    &__image-container {
+        width: 100%;
+        height: fit-content;
+        position: relative;
+        z-index: 0; 
+    }
+
+    &__section {
+        display: flex;
+        padding: calc($SPACING * 4);
+
+        &--title {
+            flex-direction: column;
+            width: 100%;
+            aspect-ratio: 16/15;
+            border-bottom: 1px solid $COLOR-GRID-BORDER;
+            overflow: scroll;
+            scrollbar-width: none;
+            padding-top: 0;
+        }
+
+        &--info {
+            flex-direction: row;
+            gap: calc($SPACING * 2);
+            border-right: 1px solid $COLOR-GRID-BORDER;
+            overflow: hidden;
+
+            p {
+                @include font-small-body($COLOR-SECONDARY-TEXT);
+            }
+        }
+
+        &--navigate {
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: flex-end;
+            position: relative;
+        }
+    }
+
+    &__title-inner-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: relative;
+    }
+
+    &__title {
+        @include font-heading;
+        margin-bottom: calc($SPACING * 2)
+    }
+    &__year {
+        @include font-sub-heading;
+        margin-bottom: calc($SPACING);
+    }
+    &__artist {
+        @include font-sub-heading;
+        margin-bottom: calc($SPACING * 2);
+        white-space: pre-wrap;
+    }
+    &__description {
+        @include font-body($COLOR-PRIMARY-TEXT);
+    }
+
+    &__details--value {
+        width: 30%;
+        overflow: scroll;
+
+    }
+    &__details-inner-container {
+        position: relative;
+
+        p {
+            white-space: nowrap;
+        }
+    }
+
+    &__place-bid {
+        cursor: pointer;
+        &:hover {
+            color: $COLOR-PRIMARY-TEXT;
+        }
+    }
+}

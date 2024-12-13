@@ -1,5 +1,43 @@
 # Magnum Opus
 
+## Pre-requisite
+
+To implement this application, please also set up API server. The repository and instructions for the back-end server can be found here: [magnum-opus-api](https://github.com/BriAnWuu/magnum-opus-api)
+
+### Installation
+
+Clone this repository to your local folder:
+
+```shell
+git clone https://github.com/BriAnWuu/magnum-opus.git
+```
+
+Navigate into your project folder and install dependencies(resource for package manager [npm](https://nodejs.org/en/download/package-manager)):
+
+```sell
+npm install
+```
+
+### Configure Environment
+
+Create a `.env` file to store end point URLs, following the format in `.env.example`:
+
+```
+VITE_APP_API_BASE_URL=http://localhost:8080/api
+VITE_APP_IMG_BASE_URL=http://localhost:8080/images
+```
+
+### Launch the Application
+
+Launch the app, and click on the URL shown in your terminal:
+
+```shell
+npm run dev
+```
+
+Be sure that back end server is also running in another terminal.
+
+
 ## Overview
 
 Magnum Opus is your favourite art auction platform for discovering great craftsmanship, creativity, and vision. Magnum Opus connects you with art that inspires and endures. Discover, bid, and own a piece of the extraordinary today.
@@ -25,7 +63,9 @@ Compared to traditional auctions, an art auction platform breaks geographical ba
 
 ### Features
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
+- Exhibition of Artworks
+- Bidding on Artworks
+- Real-time updates on Artworks
 
 ## Implementation
 
@@ -34,19 +74,29 @@ List the functionality that your app will include. These can be written as user 
 - React
 - Express
 - MySQL
+
 - Client libraries:
+    - axios
+    - html-react-parser
+    - framer-motion
     - react
     - react-router
-    - axios
-    - framer-motion
+    - react-text-mask
+    - react-use-measure
+    - sass
 - Server libraries:
-    - knex
+    - cors
+    - dotenv
     - express
+    - knex
+    - mysql2
     - socket.io
 
 ### APIs
 
-[Art Institute of Chicago API](https://api.artic.edu/docs/#introduction)
+- [Art Institute of Chicago API](https://api.artic.edu/docs/#introduction): Artwork data scraping
+- [Faker.js](https://fakerjs.dev/): Mock data generation
+- [RoboHash](https://robohash.org/): Mock user profiles generation
 
 ### Sitemap
 
@@ -56,8 +106,6 @@ List the functionality that your app will include. These can be written as user 
 - Bidding page
 
 ### Mockups
-
-Provide visuals of your app's screens. You can use pictures of hand-drawn sketches, or wireframing tools like Figma.
 
 #### Home page
 #### Artworks page
@@ -78,9 +126,9 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 - Get single artwork by artwork id
 
-**GET /auction /:id**
+**GET /auction /:artworkId**
 
-- Get single auction by auction id
+- Get single auction by artwork id
 
 **GET /auction /:id /bids**
 
@@ -140,7 +188,7 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 ## Nice-to-haves
 
-- Speach recognition for bidding
+- Speech recognition for bidding
 
 - Search function
     - Search artwork
@@ -160,5 +208,3 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 ---
 
 ## Future Implementations
-Your project will be marked based on what you committed to in the above document. Here, you can list any additional features you may complete after the MVP of your application is built, or if you have extra time before the Capstone due date.
-

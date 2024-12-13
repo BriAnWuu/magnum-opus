@@ -1,3 +1,6 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
 *, *::before, *::after {
     box-sizing: inherit;
     font: inherit;
@@ -16,9 +19,14 @@ html {
 
 body {
     min-height: 100vh;
+    background-color: $COLOR-PRIMARY-BACKGROUND;
 }
 
 img, svg {
     display: block;
     max-width: 100%;
+}
+
+a {
+    text-decoration: none;
 }

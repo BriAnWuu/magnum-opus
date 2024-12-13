@@ -1,0 +1,56 @@
+@use "../../styles/partials/variables" as *;
+
+@use "../../styles/partials/mixins" as *;
+
+
+.artwork {
+    &__feature-gallery {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            @include font-sub-title;
+            padding-inline: calc($SPACING * 4);
+        }
+    }
+
+    &__scroller {
+        overflow-x: scroll;
+    }
+
+    &__item-container {
+        display: flex;
+        min-width: 175vw;
+        align-items: baseline;
+        padding: calc($SPACING * 4);
+    }
+
+    &__item {
+        min-width: 10vw;
+        max-width: 35vw;
+        background-color: $COLOR-SECONDARY-BACKGROUND;
+        padding: calc($SPACING * 2);
+        display: flex;
+        flex-direction: column;
+        gap: $SPACING;
+    }
+
+    &__item-image {
+        cursor: pointer;
+        object-fit: cover;
+        max-height: 70vh;
+    }
+
+    &__item-artist {
+        @include font-body-alter($COLOR-PRIMARY-TEXT);
+        font-weight: 600;
+    }
+
+    &__item-title {
+        @include font-body-alter($COLOR-SECONDARY-TEXT);
+        
+        span {
+            font-style: italic;
+        }
+    }
+}

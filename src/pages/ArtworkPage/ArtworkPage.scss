@@ -1,3 +1,15 @@
 @use "../../styles/partials/variables" as *;
-@use "../../styles/partials/typography" as *;
+
 @use "../../styles/partials/mixins" as *;
+
+
+.artwork {
+    display: flex;
+    flex-direction: column;
+    gap: calc($SPACING * 3);
+
+    h1 {
+        @include font-title;
+        padding: 0 calc($SPACING * 4) calc($SPACING * 4);
+    }
+}

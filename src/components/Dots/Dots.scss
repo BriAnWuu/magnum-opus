@@ -1,0 +1,31 @@
+@use "../../styles/partials/variables" as *;
+
+@use "../../styles/partials/mixins" as *;
+
+
+.gallery {
+    &__dots-container {
+        align-self: center;
+        position: absolute;
+        top: calc(($SPACING * -4));
+        display: flex;
+        gap: calc($SPACING);
+    }
+
+    &__dot {
+        width: 0.75rem;
+        height: 0.75rem;
+        border: none;
+        border-radius: 9999px;
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+        background-color: $COLOR-WHITE;
+        cursor: pointer;
+        
+
+        &--select {
+            background-color: $COLOR-WHITE-ALTER;
+        }
+    }
+}

@@ -1,0 +1,77 @@
+@use "../../styles/partials/variables" as *;
+
+@use "../../styles/partials/mixins" as *;
+
+$TABLE-BORDER: 2px solid $COLOR-GRID-BORDER;
+
+.lot {
+    &__bid-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: $COLOR-SECONDARY-BACKGROUND;
+        border-radius: 3px;
+        padding: calc($SPACING * 3);
+        gap: calc($SPACING * 2);
+    }
+
+    &__current-price {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+            @include font-sub-heading-bold;
+            color: $COLOR-PRIMARY-TEXT;
+        }
+    }
+
+    &__watchers {
+        @include font-small-body($COLOR-PRIMARY-TEXT);
+    }
+
+    &__board-header {
+        @include font-body($COLOR-SECONDARY-TEXT);
+        padding: calc($SPACING);
+    }
+
+    &__board-body {
+        @include font-fancy;
+        padding: calc($SPACING * 2);
+    }
+
+    &__bid-score-board {
+        max-width: 40rem;
+        min-width: 20rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-inline: auto;
+
+        &--time {
+            border-right: $TABLE-BORDER;
+        }
+
+        &--row {
+            display: flex;
+            border-bottom: $TABLE-BORDER;
+
+            & > * {
+                flex: 1;
+            }
+        }
+
+        div:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &__countdown-timer {
+        margin-top: calc($SPACING);
+        display: flex;
+
+        & > p {
+            @include font-body($COLOR-SECONDARY-TEXT);
+        }
+    }
+}

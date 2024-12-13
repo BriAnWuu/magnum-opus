@@ -1,0 +1,84 @@
+@use "./variables" as *;
+@use "./typography" as *;
+
+@mixin aspect-ratio {
+    aspect-ratio: 4/3;
+}
+
+
+@mixin font-title {
+    font-family: "Fraunces", Tahoma, Verdana, sans-serif;
+    font-size: 4rem;
+    line-height: 4.5rem;
+    font-weight: 600;
+    color: $COLOR-PRIMARY-TEXT;
+}
+
+@mixin font-sub-title {
+    font-family: "Fraunces Italic", Tahoma, Verdana, sans-serif;
+    font-size: 3rem;
+    line-height: 3.25rem;
+    font-weight: 600;
+    color: $COLOR-PRIMARY-TEXT;
+}
+
+@mixin font-heading {
+    font-family: "Fraunces Italic", Tahoma, Verdana, sans-serif;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+    color: $COLOR-PRIMARY-TEXT;
+}
+
+@mixin font-sub-heading {
+    font-family: "Fraunces", Tahoma, Verdana, sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    font-weight: 400;
+    color: $COLOR-SECONDARY-TEXT;
+}
+
+@mixin font-sub-heading-bold {
+    font-family: "Fraunces", Tahoma, Verdana, sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    font-weight: 600;
+    color: $COLOR-SECONDARY-TEXT;
+}
+
+@mixin font-sub-heading-italic {
+    font-family: "Fraunces Italic", Tahoma, Verdana, sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    font-weight: 400;
+    color: $COLOR-SECONDARY-TEXT;
+}
+
+@mixin font-body($color) {
+    font-family: "Libre Caslon Display", Courier, monospace;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: $color;
+}
+
+@mixin font-body-alter($color) {
+    font-family: "Fraunces", Tahoma, Verdana, sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    color: $color;
+}
+
+@mixin font-small-body($color) {
+    font-family: "Libre Caslon Display", Courier, monospace;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: $color;
+}
+
+@mixin font-fancy {
+    font-family: "Yesteryear", Tahoma, Verdana, sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: $COLOR-SECONDARY-TEXT;
+}
