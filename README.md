@@ -114,7 +114,7 @@ Compared to traditional auctions, an art auction platform breaks geographical ba
 
 ### Data
 
-![](./public/readme-assets/db-diagram.png)
+![](./readme-assets/db-diagram.png)
 
 ### Endpoints
 
