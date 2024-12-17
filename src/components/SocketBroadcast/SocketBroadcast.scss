@@ -1,0 +1,11 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.broadcast {
+    display: flex;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    z-index: 999;
+}
