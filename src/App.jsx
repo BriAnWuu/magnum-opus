@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { BrowserRouter, Route, Routes, useFetcher } from 'react-router-dom'
 import './App.css'
 import Footer from './components/Footer/Footer'
 import NavBar from './components/NavBar/NavBar'
@@ -10,8 +11,30 @@ import Event from './pages/Event/Event'
 import Exhibition from './pages/Exhibition/Exhibition'
 import Home from './pages/Home/Home'
 import NotFound from './pages/NotFound/NotFound'
+import { socket } from './socket'
 
 function App() {
+  const [socketBroadcast, setSocketBroadcast] = useState('hi');
+
+  const broadcastMessage = (message) => {
+    setSocketBroadcast(message)
+  }
+
+  useEffect(() => {
+    socket.on('connect', () => {
+      // do something
+    });
+
+    socket.on('test_broadcast', (data) => 
+      broadcastMessage(data.message)
+    );
+
+    return () => {
+      socket.off('connect');
+      socket.off('test_broadcast');
+    }
+  }, []);
+
 
   return (
     <>
@@ -27,6 +50,7 @@ function App() {
           <Route path='bid/:artworkId' element={ <BidPage /> }></Route>
           <Route path='*' element={ <NotFound /> }></Route>
         </Routes>
+        <div>{socketBroadcast}</div>
         <Footer />
       </BrowserRouter>
     </>
