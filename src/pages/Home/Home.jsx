@@ -4,7 +4,7 @@ import Main from "../../components/Main/Main";
 import WhosWatching from "../../components/WhosWatching/WhosWatching";
 import "./Home.scss";
 
-function Home() {
+function Home({ setUserId }) {
     const [isProfileSelected, setIsProfileSelected] = useState(true)
     
     useEffect(() => {
@@ -26,7 +26,10 @@ function Home() {
     return (
         <div className="home">
             { !isProfileSelected && 
-                <WhosWatching setIsProfileSelected={setIsProfileSelected} />
+                <WhosWatching 
+                    setIsProfileSelected={setIsProfileSelected} 
+                    setUserId={setUserId}
+                />
             }
             <div className="home__content">
                 <Hero />

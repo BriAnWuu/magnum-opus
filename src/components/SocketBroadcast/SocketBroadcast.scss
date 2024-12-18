@@ -5,7 +5,37 @@
 .broadcast {
     display: flex;
     position: fixed;
-    bottom: 2%;
-    right: 2%;
-    z-index: 999;
+    bottom: 35px;
+    right: 35px;
+    z-index: 998;
+
+    &__message {
+        padding-inline: calc($SPACING);
+    }
+
+    &__icon {
+        width: 20px;
+        aspect-ratio: 1/1;
+        cursor: pointer;
+        position: relative;
+
+        path {
+            fill: $COLOR-SECONDARY-TEXT;
+        }
+    }
+
+    &__notification-counter {
+        width: 7px;
+        height: 7px;
+        background-color: $COLOR-ERROR;
+        border-radius: 50%;
+        padding: 7px;
+        font-size: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -5px;
+        right: -7px;
+    }
 }

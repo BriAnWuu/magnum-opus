@@ -14,12 +14,21 @@ import Home from './pages/Home/Home'
 import NotFound from './pages/NotFound/NotFound'
 
 function App() {
-    return (
+  const [userId, setUserId] = useState("");
+
+  useEffect(() => {
+    const user_id = sessionStorage.getItem("user_id");
+    if (user_id) {
+      setUserId(user_id);
+    }
+  }, []);
+
+  return (
     <>
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path='/' element={ <Home /> }></Route>
+          <Route path='/' element={ <Home setUserId={setUserId} /> }></Route>
           <Route path='artwork' element={ <ArtworkPage /> }></Route>
           <Route path='artwork/:artworkId' element={ <ArtworkDetailPage /> }></Route>
           <Route path='artist' element={ <Artist /> }></Route>
@@ -28,7 +37,7 @@ function App() {
           <Route path='bid/:artworkId' element={ <BidPage /> }></Route>
           <Route path='*' element={ <NotFound /> }></Route>
         </Routes>
-        <SocketBroadcast />
+        <SocketBroadcast userId={userId} />
         <Footer />
       </BrowserRouter>
     </>
