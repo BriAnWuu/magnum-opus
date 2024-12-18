@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import MaskedInput from "react-text-mask";
 import { createNumberMask } from "text-mask-addons";
 import { BidAPI } from "../../apis/bidAPI";
+import { socket } from "../../socket";
 import { formatPrice } from "../../utils/utils";
 import "./BidForm.scss";
 
@@ -11,7 +12,6 @@ function BidForm({
     auctionId, 
     askPrice, 
     currentPrice, 
-    watchers,
     setFetchBid
 }) {
     const navigate = useNavigate();
@@ -50,6 +50,12 @@ function BidForm({
         setBidPrice(currentPrice);
     }, [currentPrice]);
 
+    const ctaVariants = {
+        initial: { y: 0, scale: 1 },
+        jump: { y: -5 },
+        shrink: { scale: 0.9 },
+    }
+
     const bidIncrementHandler = (price) => {
         setBidPrice(prev => (+prev + price));
         setBorderRed(false);
@@ -75,7 +81,17 @@ function BidForm({
             event.target.focus()
         }, 0)
     }
-    
+
+    const currencyMask = createNumberMask({
+        prefix: '$', // Prefix for currency
+        suffix: '', // Suffix, if needed (e.g., " USD")
+        includeThousandsSeparator: true, // Add commas as thousands separators
+        thousandsSeparatorSymbol: ',', // Symbol for the separator
+        allowDecimal: false, // Allow decimal places
+        allowNegative: false, // Disallow negative numbers
+        allowLeadingZeroes: false, // Disallow leading zeroes
+    });
+
     const submitHandler = async (event) => {
         
         event.preventDefault();
@@ -105,25 +121,11 @@ function BidForm({
             console.log(statusCode);
         }).catch((error) => {
             console.error(error)
+            return
         });
 
+        socket.emit("onNewBid", auctionId);
         setFetchBid(prev => !prev);
-    }
-
-    const currencyMask = createNumberMask({
-        prefix: '$', // Prefix for currency
-        suffix: '', // Suffix, if needed (e.g., " USD")
-        includeThousandsSeparator: true, // Add commas as thousands separators
-        thousandsSeparatorSymbol: ',', // Symbol for the separator
-        allowDecimal: false, // Allow decimal places
-        allowNegative: false, // Disallow negative numbers
-        allowLeadingZeroes: false, // Disallow leading zeroes
-    });
-
-    const ctaVariants = {
-        initial: { y: 0, scale: 1 },
-        jump: { y: -5 },
-        shrink: { scale: 0.9 },
     }
 
     return (

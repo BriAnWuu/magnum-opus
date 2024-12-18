@@ -1,11 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import io from "socket.io-client";
+import { socket } from "../../socket";
 import "./SocketBroadcast.scss";
-
-export const socket = io.connect(
-    import.meta.env.VITE_APP_SOCKET_URL || "http://localhost:8080/"
-);
 
 function SocketBroadcast({ userId }) {
     const [broadcastMessage, setBroadcastMessage] = useState("");
@@ -16,11 +12,9 @@ function SocketBroadcast({ userId }) {
     }
 
     useEffect(() => {
-
         if (userId) {
             socket.emit("addNewUser", userId);
         }
-
         
         socket.on("newBidBroadcast", (data) => {
             if (data.success) {
@@ -34,7 +28,6 @@ function SocketBroadcast({ userId }) {
     }, [socket, userId]);
     
     return (
-        
         <motion.div 
             className="broadcast"
             initial={{ opacity: 0.7 }}
@@ -58,8 +51,7 @@ function SocketBroadcast({ userId }) {
             <div
                 onClick={() => socket.emit("onNewBid", 30)}
             > test notify </div>
-        </motion.div>
-        
+        </motion.div>        
     )
 };
 
