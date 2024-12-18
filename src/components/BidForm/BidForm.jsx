@@ -11,6 +11,7 @@ function BidForm({
     auctionId, 
     askPrice, 
     currentPrice, 
+    watchers,
     setFetchBid
 }) {
     const navigate = useNavigate();

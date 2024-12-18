@@ -82,6 +82,7 @@ function BidPage() {
                     auctionId={ auctionDetail?.id }
                     currentPrice={ currentPrice }
                     askPrice={ auctionDetail?.ask_price }
+                    watchers={ auctionDetail?.watchers }
                     setFetchBid={ setFetchBid }
                 />
                 <FollowButton 
