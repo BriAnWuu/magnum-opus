@@ -25,6 +25,7 @@ Create a `.env` file to store end point URLs, following the format in `.env.exam
 ```
 VITE_APP_API_BASE_URL=http://localhost:8080/api
 VITE_APP_IMG_BASE_URL=http://localhost:8080/images
+VITE_APP_SOCKET_URL=http://localhost:8080/
 ```
 
 ### Launch the Application
@@ -84,6 +85,7 @@ Compared to traditional auctions, an art auction platform breaks geographical ba
     - react-text-mask
     - react-use-measure
     - sass
+    - socket.io-client
 - Server libraries:
     - cors
     - dotenv

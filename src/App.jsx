@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, useFetcher } from 'react-router-dom'
 import './App.css'
 import Footer from './components/Footer/Footer'
 import NavBar from './components/NavBar/NavBar'
+import SocketBroadcast from './components/SocketBroadcast/SocketBroadcast'
 import Artist from './pages/Artist/Artist'
 import ArtworkDetailPage from './pages/ArtworkDetailPage/ArtworkDetailPage'
 import ArtworkPage from './pages/ArtworkPage/ArtworkPage'
@@ -11,37 +12,23 @@ import Event from './pages/Event/Event'
 import Exhibition from './pages/Exhibition/Exhibition'
 import Home from './pages/Home/Home'
 import NotFound from './pages/NotFound/NotFound'
-import { socket } from './socket'
 
 function App() {
-  const [socketBroadcast, setSocketBroadcast] = useState('hi');
-
-  const broadcastMessage = (message) => {
-    setSocketBroadcast(message)
-  }
+  const [userId, setUserId] = useState("");
 
   useEffect(() => {
-    socket.on('connect', () => {
-      // do something
-    });
-
-    socket.on('test_broadcast', (data) => 
-      broadcastMessage(data.message)
-    );
-
-    return () => {
-      socket.off('connect');
-      socket.off('test_broadcast');
+    const user_id = sessionStorage.getItem("user_id");
+    if (user_id) {
+      setUserId(+user_id);
     }
   }, []);
-
 
   return (
     <>
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path='/' element={ <Home /> }></Route>
+          <Route path='/' element={ <Home setUserId={setUserId} /> }></Route>
           <Route path='artwork' element={ <ArtworkPage /> }></Route>
           <Route path='artwork/:artworkId' element={ <ArtworkDetailPage /> }></Route>
           <Route path='artist' element={ <Artist /> }></Route>
@@ -50,7 +37,7 @@ function App() {
           <Route path='bid/:artworkId' element={ <BidPage /> }></Route>
           <Route path='*' element={ <NotFound /> }></Route>
         </Routes>
-        <div>{socketBroadcast}</div>
+        <SocketBroadcast userId={userId} />
         <Footer />
       </BrowserRouter>
     </>
