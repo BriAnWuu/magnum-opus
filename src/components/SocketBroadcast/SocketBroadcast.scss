@@ -4,6 +4,7 @@
 
 .broadcast {
     display: flex;
+    align-items: center;
     position: fixed;
     bottom: 20px;
     right: 25px;
@@ -16,7 +17,6 @@
     &__icon {
         width: 24px;
         aspect-ratio: 1/1;
-        position: relative;
 
         path {
             fill: $COLOR-SECONDARY-TEXT;

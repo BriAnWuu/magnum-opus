@@ -76,6 +76,14 @@
     color: $color;
 }
 
+@mixin font-small-body-alter($color) {
+    font-family: "Fraunces", Tahoma, Verdana, sans-serif;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    color: $color;
+}
+
 @mixin font-fancy {
     font-family: "Yesteryear", Tahoma, Verdana, sans-serif;
     font-size: 1.25rem;
