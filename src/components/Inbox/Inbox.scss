@@ -1,0 +1,17 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.broadcast {
+    &__inbox {
+        max-height: 11rem;
+        width: 9rem;
+        display: flex;
+        flex-direction: column;
+        gap: calc($SPACING / 2);
+        position: absolute;
+        bottom: 120%;
+        right: 0;
+        overflow: scroll;
+    }
+}
