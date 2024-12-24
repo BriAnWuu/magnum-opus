@@ -1,0 +1,31 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.broadcast {
+    &__inbox-message {
+        background-color: $COLOR-WHITE-ALTER;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        padding-inline: calc($SPACING);
+
+        & > * {
+            @include font-small-body($COLOR-WHITE);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-block: calc($SPACING / 2)
+        }
+
+        h5 {
+            @include font-small-body-alter($COLOR-WHITE);
+            -webkit-line-clamp: 1;
+            line-clamp: 1;
+            border-bottom: 1px solid $COLOR-WHITE;
+        }
+    }
+}

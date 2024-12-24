@@ -1,0 +1,10 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.broadcast {
+    &__message {
+        @include font-small-body-alter($COLOR-WHITE);
+        padding-inline: calc($SPACING);
+    }
+}

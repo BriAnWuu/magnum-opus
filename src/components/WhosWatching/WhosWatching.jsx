@@ -25,10 +25,11 @@ const profiles = [
 ];
   
 
-function WhosWatching({ setIsProfileSelected }) {
+function WhosWatching({ setIsProfileSelected, setUserId }) {
 
     const handleProfileSelection = (user) => {
         setIsProfileSelected(true);
+        setUserId(user.id);
         sessionStorage.setItem("user_id", JSON.stringify(user.id));
     }
 
