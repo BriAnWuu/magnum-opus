@@ -8,7 +8,7 @@ import MessageBanner from "../MessageBanner/MessageBanner";
 import "./SocketBroadcast.scss";
 
 function SocketBroadcast({ userId }) {
-    const [broadcastMessage, setBroadcastMessage] = useState("");
+    const [broadcastMessage, setBroadcastMessage] = useState({});
     const [inboxMessage, setInboxMessage] = useState([]);
     const [inboxOpen, setInboxOpen] = useState(false);
 
@@ -18,11 +18,7 @@ function SocketBroadcast({ userId }) {
         const amount = auction.leading_bid_price.pop();
 
         setInboxMessage(prev => [{id, title, amount}, ...prev])
-
-        const messageBroadcast = `A thrilling new bid has been placed on ${ 
-            title ? `${title} (Lot ${id})` : `Lot ${id}`
-        }!`;
-        setBroadcastMessage(messageBroadcast)
+        setBroadcastMessage({ id, title })
     }
 
     useEffect(() => {
