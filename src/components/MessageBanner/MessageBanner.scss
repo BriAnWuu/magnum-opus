@@ -4,6 +4,7 @@
 
 .broadcast {
     &__message {
+        @include font-small-body-alter($COLOR-WHITE);
         padding-inline: calc($SPACING);
     }
 }
