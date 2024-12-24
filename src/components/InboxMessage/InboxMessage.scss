@@ -9,6 +9,7 @@
         flex-direction: column;
         border-radius: 10px;
         padding-inline: calc($SPACING);
+        margin: calc($SPACING / 2) ;
 
         & > * {
             @include font-small-body($COLOR-WHITE);
