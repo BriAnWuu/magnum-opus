@@ -5,6 +5,7 @@
 .broadcast {
     display: flex;
     align-items: center;
+    gap: calc($SPACING);
     position: fixed;
     bottom: 20px;
     right: 25px;

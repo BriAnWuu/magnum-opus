@@ -6,5 +6,10 @@
     &__message {
         @include font-small-body-alter($COLOR-WHITE);
         padding-inline: calc($SPACING);
+
+        span {
+            font-family: "Fraunces Italic", Tahoma, Verdana, sans-serif;
+            font-weight: 400;
+        }
     }
 }
