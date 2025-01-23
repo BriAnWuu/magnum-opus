@@ -38,7 +38,6 @@ npm run dev
 
 Be sure that back end server is also running in another terminal.
 
-
 ## Overview
 
 Magnum Opus is your favourite art auction platform for discovering great craftsmanship, creativity, and vision. Magnum Opus connects you with art that inspires and endures. Discover, bid, and own a piece of the extraordinary today.
@@ -49,69 +48,72 @@ Compared to traditional auctions, an art auction platform breaks geographical ba
 
 ### User Profile
 
-- Buyers:
-    - looking for a great art piece to collect
-    - looking for art ownership at a fair price
-    - that want to follow the work of their favourite artists
-- Artists and Owners:
-    - gaining exposure to broader audience
-    - establishing connections with potential patrons
-    - looking to sell an art work at a fair price
-- Art Fans:
-    - that want to discover a wide variety of art
-    - looking to learn more about art
-    - looking to support their favourite artists or collectors
+-   Buyers:
+    -   looking for a great art piece to collect
+    -   looking for art ownership at a fair price
+    -   that want to follow the work of their favourite artists
+-   Artists and Owners:
+    -   gaining exposure to broader audience
+    -   establishing connections with potential patrons
+    -   looking to sell an art work at a fair price
+-   Art Fans:
+    -   that want to discover a wide variety of art
+    -   looking to learn more about art
+    -   looking to support their favourite artists or collectors
 
 ### Features
 
-- Exhibition of Artworks
-- Bidding on Artworks
-- Real-time updates on Artworks
+-   Exhibition of Artworks
+-   Bidding on Artworks
+-   Real-time updates on Artworks
 
 ## Implementation
 
 ### Tech Stack
 
-- React
-- Express
-- MySQL
+-   React
+-   Express
+-   MySQL
 
-- Client libraries:
-    - axios
-    - html-react-parser
-    - framer-motion
-    - react
-    - react-router
-    - react-text-mask
-    - react-use-measure
-    - sass
-    - socket.io-client
-- Server libraries:
-    - cors
-    - dotenv
-    - express
-    - knex
-    - mysql2
-    - socket.io
+-   Client libraries:
+    -   axios
+    -   html-react-parser
+    -   framer-motion
+    -   react
+    -   react-router
+    -   react-text-mask
+    -   react-use-measure
+    -   sass
+    -   socket.io-client
+-   Server libraries:
+    -   cors
+    -   dotenv
+    -   express
+    -   knex
+    -   mysql2
+    -   socket.io
 
 ### APIs
 
-- [Art Institute of Chicago API](https://api.artic.edu/docs/#introduction): Artwork data scraping
-- [Faker.js](https://fakerjs.dev/): Mock data generation
-- [RoboHash](https://robohash.org/): Mock user profiles generation
+-   [Art Institute of Chicago API](https://api.artic.edu/docs/#introduction): Artwork data scraping
+-   [Faker.js](https://fakerjs.dev/): Mock data generation
+-   [RoboHash](https://robohash.org/): Mock user profiles generation
 
 ### Sitemap
 
-- Home page
-- Artworks page
-- Artwork detail page
-- Bidding page
+-   Home page
+-   Artworks page
+-   Artwork detail page
+-   Bidding page
 
 ### Mockups
 
 #### Home page
+
 #### Artworks page
+
 #### Artwork detail page
+
 #### Bidding page
 
 ### Data
@@ -122,90 +124,66 @@ Compared to traditional auctions, an art auction platform breaks geographical ba
 
 **GET /artworks**
 
-- Get a list of artworks from database
+-   Get a list of artworks from database
 
 **GET /artworks /:id**
 
-- Get single artwork by artwork id
+-   Get single artwork by artwork id
 
 **GET /auction /:artworkId**
 
-- Get single auction by artwork id
+-   Get single auction by artwork id
 
 **GET /auction /:id /bids**
 
-- Get a list of bids on the auction
+-   Get a list of bids on the auction
 
 **POST /bid**
 
-- Create a new bid on an artwork
+-   Create a new bid on an artwork
 
 **PATCH /user /:id**
 
-- Update user data
+-   Update user data
 
-## Roadmap
+## TODOs
 
-- Create client
-    - front end react project with routes
+-   change api endpoints
 
-- Create server
-    - back end express project
+    -   get aution by both artwork and auction ids
+    -   add get followers (for component)
+    -   add/change get bids on artwork (for component)
+    -   add search
+        -   by both artwork and auction id
+        -   by title
+        -   by hash tags
+        -   by artist
+        -   by artwork year, listing date
 
-- Data collection
-    - use Javascript and Art API to store data in server and MySQL
-    - artwork detail data -> MySQL
-    - artwork image -> express static
+-   Search function
 
-- Server end points
+    -   Search artwork
+    -   Search artist or owners
+    -   Search by auction listing date
 
-- Choose auction rules (type of auction)
-
-- Github repo set up
-
-- Home page
-    - Hero and Nav
-    - Main: parallax scrolling gallery
-    - More auctions: link to Artworks page
-    - Footer
-
-- Artwork detail page
-    - Image: zoom in portion of image when hover
-    - Information of the artwork
-    - Start bidding: link to bidding page of the work
-
-- Artworks page
-    - Gallery of artworks
-    - Show bidding price for each
-    - Show count down to auction close for each
-
-- Set up websocket for bidding functionality
-
-- Bidding page
-    - Image: zoom in portion of image when hover
-    - Brief info of the artwork
-    - List of bids and leading bid
-
-
+-   add custom hook
+    -   all data fetch (for better separation)
+    -   CTAs like follow, bid, search
 
 ## Nice-to-haves
 
-- Speech recognition for bidding
+-   Speech recognition for bidding
 
-- Search function
-    - Search artwork
-    - Search artist or owners
-    - Search by auction listing date
+-   Sorting and grouping functions
 
-- Sorting and grouping functions
-    - Sort by year, etc.
-    - Group by artist, style, year, or country of origin
+    -   Sort by year, etc.
+    -   Group by artist, style, year, or country of origin
 
-- Recommendation based on artworks visited
+-   Recommendation based on artworks visited
 
-- Login to differentiate user types (buyers, seller, artist, etc.)
+-   Login to differentiate user types (buyers, seller, artist, etc.)
 
-- Follow other users
+-   Follow other users
 
 ---
 
