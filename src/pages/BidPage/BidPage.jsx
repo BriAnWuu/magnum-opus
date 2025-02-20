@@ -17,80 +17,80 @@ function BidPage() {
     const [fetchBid, setFetchBid] = useState(false);
     const [fetchAuction, setFetchAuction] = useState(false);
 
-    // api get auction by id
+    // api get auction by artwork id
     useEffect(() => {
-        AuctionAPI.get(artworkId)
-        .then((auctionData) => {
-            setAuctionDetail(auctionData);       
-        })
-        .catch((error) => {
-            console.error(error)
-        });
+        AuctionAPI.getAuctionByArtworkId(artworkId)
+            .then((auctionData) => {
+                setAuctionDetail(auctionData);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }, [fetchAuction]);
 
     // api get bid data
     useEffect(() => {
         if (auctionDetail) {
             AuctionAPI.getBids(auctionDetail.id)
-            .then((bidData) => {
-                setBidList(bidData);
+                .then((bidData) => {
+                    setBidList(bidData);
 
-                if (bidData.length > 0) {
-                    setCurrentPrice(bidData[bidData.length - 1].amount)
-                } else {
-                    setCurrentPrice(auctionDetail.ask_price)
-                }
-            })
-            .catch((error) => {
-                console.error(error)
-            });
+                    if (bidData.length > 0) {
+                        setCurrentPrice(bidData[bidData.length - 1].amount);
+                    } else {
+                        setCurrentPrice(auctionDetail.ask_price);
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         }
     }, [auctionDetail, fetchBid]);
-    
+
     return (
         <div className="lot">
             <div className="lot__left-column">
-                <ArtworkImage 
-                    imageId={ auctionDetail?.artwork_id } 
-                    alt_text={ auctionDetail?.alt_text }
+                <ArtworkImage
+                    imageId={auctionDetail?.artwork_id}
+                    alt_text={auctionDetail?.alt_text}
                 />
-                <AboutTheWork 
-                    description={ auctionDetail?.description } 
-                    provenance={ auctionDetail?.provenance_text } 
+                <AboutTheWork
+                    description={auctionDetail?.description}
+                    provenance={auctionDetail?.provenance_text}
                 />
             </div>
             <div className="lot__right-column">
-                <LotMainInfo 
-                    auctionId={ auctionDetail?.id } 
-                    artist={ auctionDetail?.artist_title } 
-                    title={ auctionDetail?.title } 
-                    date_start={ auctionDetail?.date_start }
-                    date_end={ auctionDetail?.date_end }
-                    medium={ auctionDetail?.medium_display } 
-                    dimension={ auctionDetail?.dimensions } 
+                <LotMainInfo
+                    auctionId={auctionDetail?.id}
+                    artist={auctionDetail?.artist_title}
+                    title={auctionDetail?.title}
+                    date_start={auctionDetail?.date_start}
+                    date_end={auctionDetail?.date_end}
+                    medium={auctionDetail?.medium_display}
+                    dimension={auctionDetail?.dimensions}
                 />
-                <BidInfo 
-                    auctionId={ auctionDetail?.id } 
-                    currentPrice={ currentPrice }
-                    askPrice={ auctionDetail?.ask_price }
-                    watchers={ auctionDetail?.watchers?.length }
-                    open_at={ auctionDetail?.open_at }
-                    close_at={ auctionDetail?.close_at }
-                    bidList={ bidList }
+                <BidInfo
+                    auctionId={auctionDetail?.id}
+                    currentPrice={currentPrice}
+                    askPrice={auctionDetail?.ask_price}
+                    watchers={auctionDetail?.watchers?.length}
+                    open_at={auctionDetail?.open_at}
+                    close_at={auctionDetail?.close_at}
+                    bidList={bidList}
                 />
                 <BidForm
-                    auctionId={ auctionDetail?.id }
-                    currentPrice={ currentPrice }
-                    askPrice={ auctionDetail?.ask_price }
-                    setFetchBid={ setFetchBid }
+                    auctionId={auctionDetail?.id}
+                    currentPrice={currentPrice}
+                    askPrice={auctionDetail?.ask_price}
+                    setFetchBid={setFetchBid}
                 />
-                <FollowButton 
-                    auctionId={ auctionDetail?.id } 
-                    setFetchAuction={ setFetchAuction }
+                <FollowButton
+                    auctionId={auctionDetail?.id}
+                    setFetchAuction={setFetchAuction}
                 />
             </div>
         </div>
-    )
-};
+    );
+}
 
 export default BidPage;
